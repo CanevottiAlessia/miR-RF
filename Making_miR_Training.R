@@ -6,7 +6,7 @@ library("tidyr")
 
                           ################################################################### TRAINING ######################################################################### 
 
-# The training dataset consists of 168 negative examples and 163 positive examples (rows)
+# The training dataset I have used consists of 168 negative examples and 163 positive examples (rows): 
 # For each row, representative features (columns) have been calculated, able to distiguish between positive and negative entities. 
 # A normalization has been performed on counts scaled by the hairpin lengths, while the hairpin lenghts have been divided by 100. Frequences, instead remained as they are in input. 
 
