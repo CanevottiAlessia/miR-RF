@@ -6,7 +6,8 @@ library("tidyr")
 
                           ################################################################### TRAINING ######################################################################### 
 
-# The training dataset I have used consists of 168 negative examples and 163 positive examples (rows): 
+# The training dataset (obtained from Xue et al.) used in this work consists of 163 positive examples (human pre-miRNAs, retrieved from miRBase) and 168 negative examples (miRNAs-like hairpins,
+# extracted from CDS sequences). These examples represent the rows of the dataframe. 
 # For each row, representative features (columns) have been calculated, able to distiguish between positive and negative entities. 
 # A normalization has been performed on counts scaled by the hairpin lengths, while the hairpin lenghts have been divided by 100. Frequences, instead remained as they are in input. 
 
@@ -45,5 +46,4 @@ fitC331_new <- trainControl(method = "repeatedcv", number = 10, repeats = 10)
 set.seed(825)
 miR_MODEL <- train(`real miRNA` ~ ., data = miR_normalized_df, method = "rf", trControl = fitC331_new, tuneGrid = expand.grid(mtry=c(5,6,37,50,55,57,119,120,121,122,123)))                         
 
-# saveRDS(miR_MODEL, file = "trained_model_new.RDS")  --> questo è il mio 
-# saveRDS(miR_MODEL, file = "my_trained_model.RDS")  --> per utente
+# saveRDS(miR_MODEL, file = "trained_model_new.RDS")
