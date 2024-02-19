@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 # Check if the trained model exists, if not, train and save it
-if (!file.exists("trained_model.RDS")) {
+if (!file.exists("trained_model_new.RDS")) {
   train_model_and_save()
 }
 
