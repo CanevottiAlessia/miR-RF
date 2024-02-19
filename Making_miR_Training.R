@@ -45,4 +45,5 @@ fitC331_new <- trainControl(method = "repeatedcv", number = 10, repeats = 10)
 set.seed(825)
 miR_MODEL <- train(`real miRNA` ~ ., data = miR_normalized_df, method = "rf", trControl = fitC331_new, tuneGrid = expand.grid(mtry=c(5,6,37,50,55,57,119,120,121,122,123)))                         
 
-# saveRDS(miR_MODEL, file = "trained_model_new.RDS")
+# saveRDS(miR_MODEL, file = "trained_model_new.RDS")  --> questo è il mio 
+# saveRDS(miR_MODEL, file = "my_trained_model.RDS")  --> per utente
