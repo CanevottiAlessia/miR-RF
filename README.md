@@ -1,4 +1,4 @@
-# miR_RF APPLICATION
+# miRF APPLICATION
 The "miR_RF APPLICATION" repository hosts a machine learning-based application designed to evaluate the authenticity of pre-microRNAs. 
 
 ---
