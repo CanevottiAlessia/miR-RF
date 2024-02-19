@@ -69,7 +69,7 @@ cm_test2 <- confusionMatrix(positive="yes", test2_testingMODEL, as.factor(miR_Ra
 
 | TEST | ACC | SEN | SPEC |
 |-------|-----|-----|------|
-| TEST 2 | 0.95 | 0.91 | 0.96 |
-| TEST 3 | 0.96 | 0.93 | 0.98 |
+| TEST 1 | 0.95 | 0.91 | 0.96 |
+| TEST 2 | 0.96 | 0.93 | 0.98 |
 
 
