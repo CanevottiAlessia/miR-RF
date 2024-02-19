@@ -920,3 +920,130 @@ for d in mir_dict:
 df_b = pd.DataFrame(results)
 df_b.set_index('mirna_name', inplace=True)
 df_base_features = pd.concat([df_pairs, df_b], axis=1)
+
+
+# INFO BULGES
+RNAfold_out = open(random_file_name, "r")
+RNAfold_output = RNAfold_out.readlines()
+header = []
+seq = []
+dots_brackets1 = []
+mir_dict = {}
+for i in range(0, len(RNAfold_output), 3):
+    header.append(RNAfold_output[i].strip("\n"))
+    seq.append(RNAfold_output[i + 1].strip("\n"))
+    dots_brackets1.append(RNAfold_output[i + 2].strip("\n"))
+for e in range(len(header)):
+    mir_dict[(header[e].strip("\n"), seq[e].strip("\n"))] = dots_brackets1[e]
+pattern_counts = {}  # Dictionary to store pattern counts
+miRNA_order = []  # Maintain the order of miRNAs
+bulge_5_prime_counts = {}  # Dictionary to store bulge counts at 5' prime
+bulge_3_prime_counts = {}  # Dictionary to store bulge counts at 3' prime
+for d in mir_dict:
+    my_name = d[0]
+    my_seq = d[1]
+    my_not = mir_dict[d]
+    total_length_seq = len(my_not)  # not useful here
+    regex_putative_bulge_5_prime = "\(\.{1,}\("
+    regex_putative_bulge_3_prime = "\)\.{1,}\)"
+    regex_putative_bulge = regex_putative_bulge_5_prime + "|" + regex_putative_bulge_3_prime
+    bul = re.findall(regex_putative_bulge, my_not)
+    central_loop = re.search(r"(\({2}\.{3,}\){2})+", my_not)  # not useful here
+    indices = []  # List to store the start and end indices of matched patterns   
+    for b in bul:
+        if b not in pattern_counts:
+            pattern_counts[b] = {}  # Create an empty dictionary for the pattern if it's not already present
+        if my_name not in pattern_counts[b]:
+            pattern_counts[b][my_name] = 1  # Initialize the count for the miRNA in the pattern dictionary
+        else:
+            pattern_counts[b][my_name] += 1  # Increment the count for the miRNA in the pattern dictionary           
+        # Find the first occurrence of the pattern in the RNA secondary structure string
+        match = re.search(re.escape(b), my_not)
+        # Get the start and end indices of the matched pattern
+        start = match.start()
+        end = match.end()
+        # Store the start and end indices as a tuple in the indices list
+        indices.append((start, end))       
+        if '(' in b:
+            if my_name not in bulge_5_prime_counts:
+                bulge_5_prime_counts[my_name] = 1
+            else:
+                bulge_5_prime_counts[my_name] += 1
+        elif ')' in b:
+            if my_name not in bulge_3_prime_counts:
+                bulge_3_prime_counts[my_name] = 1
+            else:
+                bulge_3_prime_counts[my_name] += 1                
+    if my_name not in miRNA_order:
+        miRNA_order.append(my_name)
+# Define the desired patterns
+patterns = [
+    '(.(',
+    '(............(',
+    '(...(',
+    ')....)',
+    ').)',
+    ')..)',
+    ').....)',
+    ')......)',
+    '(..(',
+    ')...)',
+    '(.....(',
+    '(......(',
+    '(....(',
+    ').......)',
+    '(........(',
+    ')..........)',
+    ')........)',
+    ').........)',
+    '(.........(',
+    '(.......(',
+    '(..........(',
+    ').............)',
+    ')...............)',
+    '(...........(',
+    '(.................(',
+    ')............)',
+    ')...........)',
+    ')..................)',
+    '(..............(',
+    '(...............(',
+    '(...................(',
+    '(.............(',
+    '(..................(',
+    '(.....................(',
+    ')................)'
+]
+# Initialize pattern counts to 0
+for pattern in patterns:
+    pattern_counts.setdefault(pattern, {})
+df = pd.DataFrame(pattern_counts)
+df['Bulges_5_prime'] = df.index.map(bulge_5_prime_counts)
+df['Bulges_3_prime'] = df.index.map(bulge_3_prime_counts)
+df = df.reindex(miRNA_order)
+df = df.fillna(0)
+column_order = ['(.(', '(............(', '(...(', ')....)', ').)', ')..)', ').....)', ')......)',
+                '(..(', ')...)', '(.....(', '(......(', '(....(', ').......)', '(........(',
+                ')..........)', ')........)', ').........)', '(.........(', '(.......(',
+                '(..........(', ').............)', ')...............)', '(...........(',
+                '(.................(', ')............)', ')...........)', ')..................)',
+                '(..............(', '(...............(', '(...................(', '(.............(',
+                '(..................(', '(.....................(', ')................)',
+                'Bulges_5_prime', 'Bulges_3_prime']
+df_bulges = df[column_order]
+# df_bulges.to_csv('30_info_bulges.tsv', sep="\t")
+
+DF_TOTAL = pd.DataFrame(pd.concat([df_loops, df_32, df_nucleotides, df_base_features, df_bulges, df_energies], axis=1))
+
+DF_TOTAL.to_csv(f"features_table_for_{user_file}", sep="\t")
+
+
+import os
+
+# Remove intermediate files
+intermediate_files = [resulting_string, file_info_loops, file_32_features, file_nucleotides_features, output_file, random_file_name]
+for file in intermediate_files:
+   try:
+       os.remove(file)
+   except FileNotFoundError:
+       pass
