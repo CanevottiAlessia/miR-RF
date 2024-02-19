@@ -128,7 +128,7 @@ This command will create a new directory named "miRF_application" within the cur
    - After the project environment is created, activate it by using the following command:
 
    ```bash
-   conda activate miRF
+   conda activate miR_RF
    ```
    This step ensures that the appropriate environment, complete with all the necessary channels and packages required to run the miRF application, is activated. The 
    miR_configuration_file.yml contains a specific set of channel configurations and package installations essential for the execution of the application.
