@@ -9,7 +9,7 @@ def runner(inp, out):
         pass
     intermediate_file="features_table_for_" + inp
     try:
-        os.system("Rscript make_pred.R " + intermediate_file + " " + out) 
+        os.system("Rscript make_miR_pred.R " + intermediate_file + " " + out) 
     except:
         print("Error: Failed to execute. Please, enter the output file name.")
         pass
