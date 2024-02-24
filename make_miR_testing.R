@@ -1,8 +1,8 @@
                           ################################################################### TESTING ######################################################################### 
 
 # I have decided to test the METHOD on 2 independent datasets:
-# TEST 1 consists on 1000 negative esamples and 394 positive examples 
-# TEST 2 consistes on 193 negative examples and 193 positive examples
+# TEST 1 consists on 1000 negative examples and 394 positive examples 
+# TEST 2 consists on 193 negative examples and 193 positive examples
 
                                                                           #################### TEST 1 #######################
 
