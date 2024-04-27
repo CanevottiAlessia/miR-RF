@@ -1,5 +1,5 @@
 # miR-RF
-  The "miR-RF" repository hosts a machine learning-based application designed to evaluate the authenticity of pre-microRNAs. 
+  The "miR-RF" repository hosts a machine learning-based application designed to classify/annotate pre-microRNAs. 
 
 ---
 
