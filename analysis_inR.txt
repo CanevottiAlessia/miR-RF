@@ -1748,3 +1748,28 @@ barplot(inducible_targets_full_mirgene$Count,
         col="lightpink",
         las=2,
         cex.names=0.5)
+
+###########################################################    CONSERVAZIONE  ############################################################
+
+################  MIRBASE
+
+tab_conserv_class_mirbase = read.csv("3_tabella_conservazione.tsv", sep="\t")
+colnames(tab_conserv_class_mirbase) = c("mirna","macaca","lemur","topo", "gatto", "maiale", "mucca", "gallo", "rana", "zebrafish", 
+"taki", "human_CLASS", "human_PREDICTION")
+#write.table(tab_conserv_class_mirbase, "tabella_conservazione_mirbase.tsv", sep="\t", row.names = F)
+
+library(dplyr)
+tab_conserv_class_mirbase <- tab_conserv_class_mirbase %>%
+  mutate(ORTH_percentage = rowMeans(select(., matches("^(macaca|lemur|topo|gatto|maiale|mucca|gallo|rana|zebrafish|taki)$")) == "ORTH") * 100)
+
+
+
+
+###############  MIRGENE
+
+tab_conserv_class_mirgene = merge(mirgene_names_ok, tab_conserv_class_mirbase, by="mirna")
+#write.table(tab_conserv_class_mirgene, "tabella_conservazione_mirgene.tsv", sep="\t", row.names = F)
+
+library(dplyr)
+tab_conserv_class_mirgene <- tab_conserv_class_mirgene %>%
+  mutate(ORTH_percentage = rowMeans(select(., matches("^(macaca|lemur|topo|gatto|maiale|mucca|gallo|rana|zebrafish|taki)$")) == "ORTH") * 100)
