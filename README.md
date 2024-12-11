@@ -1,5 +1,5 @@
 # miR-RF
-  The "miR-RF" repository hosts a machine learning-based application designed to classify/annotate pre-microRNAs. 
+  The "miR-RF" repository hosts a machine learning-based application designed pre-microRNAs classification. 
 
 ---
 
@@ -33,22 +33,17 @@ For every input string, made by the header line and its sequence, the output is 
    
 - Multi-FASTA format is also supported.
 
-In order to obtain the appropriate input for miR-RF, you can install RNAfold Vienna package on your machine. To install this package run one of the following:
+In order to obtain the appropriate input for miR-RF, you can install RNAfold Vienna package on your machine, by running:
 
 ```bash
 conda install -c bioconda viennarna
 conda install -c "bioconda/label/cf201901" viennarna
-```
-
-To run it:
-
-```bash
 RNAfold -p -d2 --noLP --noDP --noPS <input_file> > <output_RNAfold_file>
 ```
 
 This command creates the <output_RNAfold_file> file, which is the input for miR-RF. 
 
-- The miR-RF application accommodates a range of input file extensions. Whether it's a .txt, .out, or another format, the application is engineered to process pre-miRNA data effectively, irrespective of the file extension. 
+- The miR-RF application accommodates all types of input file extensions. 
 - Important note: since the header cannot contain values separated by "\t", the application converts any "\t" present in the header into a single space " ". 
 
   For example, from this input:
@@ -90,93 +85,59 @@ The output file contains each pre-miRNA name and the corresponding prediction:
 
 ### Installation
 
-Before beginning with the installation, we recommend creating a new directory to neatly store all the requirements for miR-RF. This facilitates a more organized environment for running the application efficiently. 
-To create a new directory, for example named "miR-RF_application", in your current location, use the following command in the terminal:
-
-```bash
-mkdir miR-RF_application
-```
-This command will create a new directory named "miR-RF_application" within the current location. Users can then put the necessary files here. 
+We recommend creating a new directory to neatly store all the requirements for miR-RF. This facilitates a more organized environment for running the application efficiently. 
 
 1. Conda Installation in Command Line:
    - Follow the provided instructions in the 'CONDA installation' file to install Conda on your system in the directory just created.
 
 2. Activating the Conda environment:
-   - Once Conda is installed, use the provided `miR_configuration_file.yml` file to create an environment suitable for running miR-RF.
-   Download the `miR_configuration_file.yml` file and copy it in the new directory, as follows:
-
-   ```bash
-   cp miR_configuration_file.yml ~/miR-RF_application
-   ```
-   - In the command line, activate conda with the following command:
-
-   ```bash
-   conda activate
-   ``` 
+   - Once Conda is installed and activated, clone the URL provided, this imports in you machine all the files becessary for miR-RF to work:
    
-   - Remain in the directory containing the `miR_configuration_file.yml` file and type the following command:
-
+   ```bash
+   git clone <repository_URL>
+   ```
+   
+   The files used by miR-RF are the following:
+   - `miR_configuration_file.yml`: conda environment configuration file;
+   - `PY_miR_features_extraction.py`: Python script for feature extraction from pre-miRNAs;
+   - `make_miR_pred.R`: R script for making predictions using machine learning;
+   - `trained_model_new.RDS`: Includes the pre-trained model data necessary for predictions;
+   - `miR_application.py`: Executor program coordinating the feature extraction and prediction processes;
+  
+3. Use `miR_configuration_file.yml` file to configurate an environment suitable for running miR-RF. It contains a specific set of channel configurations and package installations essential for the
+     execution of the application.
+     
    ```bash
    conda env create -f miR_configuration_file.yml
    ```
    Note: Creating the environment may take some time because Conda downloads and installs all the necessary packages and dependencies.
 
-   - After the project environment is created, activate it by:
+   - Activate the env by:
 
    ```bash
    conda activate miR_RF
    ```
-   This step ensures that the appropriate environment, complete with all the necessary channels and packages required to run the miR-RF application, is activated. The miR_configuration_file.yml contains a specific set of channel
-   configurations and package installations essential for the execution of the application.
 
-
-4. Setting up the directory:
-   - Add in the same directory where it is present the `miR_configuration_file.yml` the provided following files:
-      - `PY_miR_features_extraction.py`: Python script for feature extraction from pre-miRNAs;
-      - `make_miR_pred.R`: R script for making predictions using machine learning;
-      - `trained_model_new.RDS`: Includes the pre-trained model data necessary for predictions;
-      - `miR_application.py`: Executor program coordinating the feature extraction and prediction processes;
- 
-   On command line, copy the repository URL in the right directory and write:
-
-   ```bash
-   git clone <repository_URL>
-   ```
-   
-   Note: make sure that `miR_configuration_file.yml`, `trained_model_new.RDS`, `PY_miR_features_extraction.py`, `make_miR_pred.R` and `miR_application.py` are located in the same directory. 
-    
-
-5. Running the miR-RF application:
-   - To run miR-RF, use the following command in the terminal:
+4. Running miR-RF application:
 
    ```bash
    python3 miR_application.py <input_file> <output_file>
    ```
-
-   Replace input_file with the name of the file containing pre-miRNA data in the required format. Similarly, replace output_file with the desired name for the prediction results file.
+   Replace input_file with the name of the file containing <output_RNAfold_file>. Similarly, replace output_file with the desired name for the prediction results file.
 
    Example Usage:
 
    ```bash
-   python3 miR_application.py miRNA_sequences.txt predictions.txt
+   python3 miR_application.py miRNA_sequences.txt predictions_output.txt
    ```
    miRNA_sequences.txt: Example input file containing pre-miRNA data.
-   
    predictions_output.txt: Output file to store the prediction results.
 
-   Ensure that the input file follows the specified format (see Input requirements). Upon executing this command, the `miR_application.py` program will process the input data, execute feature extraction, and generate predictions using the
-   trained model.
+   Ensure that the input file follows the specified format (see Input requirements). Upon executing this command, the `miR_application.py` program will process the input data, execute feature extraction, and 
+   generate predictions using the trained model.
 
 
 7. Example input files:
    
    Use the provided files, called "miRNA_sequences.txt" and "miRNA_mouse_sequences.txt", if needed, in order to obtain and run an input example.
 
-
-8. Visualising the output:
-
-   In order to display the final output, you can type "less" or "more" in the command line, for example:
-
-   ```bash
-   less <output_file>
-   ```
