@@ -128,16 +128,10 @@ We recommend creating a new directory to neatly store all the requirements for m
    Example Usage:
 
    ```bash
-   python3 miR_application.py miRNA_sequences.txt predictions_output.txt
+   python3 miR_application.py example_input_sequences.txt predictions_output.txt
    ```
-   miRNA_sequences.txt: Example input file containing pre-miRNA data.
+   example_input_sequences.txt: Example input file containing pre-miRNA data. (the file is provided) 
    predictions_output.txt: Output file to store the prediction results.
 
    Ensure that the input file follows the specified format (see Input requirements). Upon executing this command, the `miR_application.py` program will process the input data, execute feature extraction, and 
    generate predictions using the trained model.
-
-
-7. Example input files:
-   
-   Use the provided files, called "miRNA_sequences.txt" and "miRNA_mouse_sequences.txt", if needed, in order to obtain and run an input example.
-
