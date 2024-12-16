@@ -1,7 +1,17 @@
 import sys
 import os
 
-def runner(rnafold,fasta,base_pred):
+def remove_temp_files():
+    """Rimuove tutti i file che contengono 'temp' o 'final_hairpins.' nel nome nella directory corrente."""
+    for file_name in os.listdir("."):
+        if "temp" in file_name or "final_hairpins." in file_name:
+            try:
+                os.remove(file_name)
+                print(f"Removed file: {file_name}")
+            except Exception as e:
+                print(f"Error removing file {file_name}: {e}")
+
+def runner(rnafold, fasta, base_pred):
     try:
         os.system("python3 3_get_fasta_for_insertion.py " + rnafold)
     except:
@@ -38,7 +48,7 @@ def runner(rnafold,fasta,base_pred):
         print("Error: Failed to execute python3 7_make_fisher_test.py")
         pass
     try:
-        os.system("python3 8_make_temp_classes.py " + intermediate_file4)
+        os.system("python3 8_make_first_classes.py " + intermediate_file4)
     except:
         print("Error: Failed to execute python3 8_make_temp_classes.py")
         pass
@@ -51,6 +61,8 @@ def runner(rnafold,fasta,base_pred):
         print("Error: Failed to execute python3 9_make_final_classes.py")
         pass
 
+    # Rimuove tutti i file temporanei alla fine
+    remove_temp_files()
 
 if __name__ == "__main__":
     rnafold = sys.argv[1]
