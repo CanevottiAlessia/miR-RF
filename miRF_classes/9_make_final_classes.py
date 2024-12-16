@@ -17,9 +17,7 @@ dr_class = pd.read_csv(user_file, sep="\t") #"DR_class.tsv", sep="\t")
 dr_class = dr_class.iloc[:, [0, 6]]  # Take the first and the last columns
 dr_class.columns = ["mirna_name", "status"]
 
-classes_temp = pd.read_csv(user_file3, sep="\t", header=None, names=['mirna_name', 'status']) #("temp_classes_mirnas.txt", sep="\t", header=None, names=["mi
-rna_name", "status"])
-
+classes_temp = pd.read_csv(user_file3, sep="\t", header=None, names=['mirna_name', 'status']) 
 # Rename classes
 classes_temp["status"] = classes_temp["status"].replace({
     "Dispensable": "D",
