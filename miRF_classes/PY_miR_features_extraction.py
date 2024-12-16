@@ -795,8 +795,7 @@ for d in mir_dict:
     indexes_paired_bases = []  # list that will contain all the indexes of all the couples found
     for e in my_not:
         if my_not[initial_index] == "(" and my_not[final_index] == ")":  # there is a pairing
-            couple_of_bases = my_seq[initial_index] + my_seq[final_index]  # extract the first base that corresponds to '(' and the last base that correspon
-ds to ')'
+            couple_of_bases = my_seq[initial_index] + my_seq[final_index]  # extract the first base that corresponds to '(' and the last base that corresponds to ')'
             couples.append(couple_of_bases)
             indexes_to_be_added = []  # sub list that will contain the indexes of the 2 bases that compose the pairing
             indexes_to_be_added.append(initial_index)  # index of the base at 5'
@@ -856,8 +855,7 @@ ds to ')'
     count_GG = len(GG_couples) / 2
     count_UU = len(UU_couples) / 2
     count_CC = len(CC_couples) / 2
-    total_numb_pairings = count_CG + count_GC + count_UA + count_AU + count_UG + count_GU + count_AA + count_GG + count_UU + count_CC  # measure the total n
-umber of pairings found
+    total_numb_pairings = count_CG + count_GC + count_UA + count_AU + count_UG + count_GU + count_AA + count_GG + count_UU + count_CC  # measure the total number of pairings found
     if total_numb_pairings != 0:
         frequency_couple_CG = count_CG / float(total_numb_pairings)
     else:
