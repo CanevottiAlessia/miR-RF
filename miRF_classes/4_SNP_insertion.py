@@ -103,8 +103,7 @@ output_file = user_file + '_temp_SNPpot_SEQinsterted_fasta.txt'
 rnafold_output_file = user_file2 + '_potential_RNAfold.txt'  # Define where RNAfold output will be saved
 try:
     # Construct the RNAfold command
-    command = ["RNAfold", "-p", "-d2", "--noLP", "--noDP", "--noPS", "--jobs=40", output_file] #command = ["RNAfold", "-p", "-d2", "--noLP", "--noDP", "--no
-PS", output_file]
+    command = ["RNAfold", "-p", "-d2", "--noLP", "--noDP", "--noPS", "--jobs=40", output_file]
     # Open the RNAfold output file for writing
     with open(rnafold_output_file, "w") as rnafold_out:
         # Run the RNAfold command
