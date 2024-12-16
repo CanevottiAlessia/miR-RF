@@ -14,6 +14,6 @@ def replace_spaces_in_headers(file_path, output_path):
             outfile.write(line)
 
 # Use
-input_file = 'hg19_hsa_hairpin.fa'
-output_file = 'formatted_hg19_hsa_hairpin.fa'
+input_file = user_file
+output_file = user_file2 
 replace_spaces_in_headers(input_file, output_file)
