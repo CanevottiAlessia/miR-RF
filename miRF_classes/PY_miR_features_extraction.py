@@ -755,8 +755,7 @@ for mirna, counts in mirna_counts.items():
         'U_unpaired': counts['U']['unpaired']
     }
     mirna_rows.append(row)
-df_pairs = pd.DataFrame(mirna_rows, columns=['mirna_name', 'C_paired', 'A_paired', 'G_paired', 'U_paired','C_unpaired', 'A_unpaired', 'G_unpaired', 'U_unpai
-red'])
+df_pairs = pd.DataFrame(mirna_rows, columns=['mirna_name', 'C_paired', 'A_paired', 'G_paired', 'U_paired','C_unpaired', 'A_unpaired', 'G_unpaired', 'U_unpaired'])
 df_pairs.set_index('mirna_name', inplace=True)
 # Create a df where the rows are the mirna names and the columns correspond to the results of:
 # count_CG, count_GC, count_UA, count_AU, count_UG, count_GU, count_AA, count_GG, count_UU, count_CC, frequency_couple_CG,
