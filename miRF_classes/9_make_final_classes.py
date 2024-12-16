@@ -48,4 +48,4 @@ class_temp_updated["new_status"] = class_temp_updated["status"].map({
 new_classes_final = class_temp_updated[["mirna_name", "new_status"]]
 
 # Write the output to a file
-new_classes_final.to_csv(user_file4 + "_final_classes.tsv", index=False, sep="\t")
+new_classes_final.to_csv(user_file4, index=False, sep="\t")
