@@ -1033,8 +1033,8 @@ column_order = ['(.(', '(............(', '(...(', ')....)', ').)', ')..)', ')...
 df_bulges = df[column_order]
 # df_bulges.to_csv('30_info_bulges.tsv', sep="\t")
 
-#DF_TOTAL = pd.DataFrame(pd.concat([df_loops, df_32, df_nucleotides, df_base_features, df_bulges, df_energies], axis=1))
-DF_TOTAL = pd.concat([df_loops, df_32, df_nucleotides, df_base_features, df_bulges, df_energies], axis=1, join='inner')
+DF_TOTAL = pd.DataFrame(pd.concat([df_loops, df_32, df_nucleotides, df_base_features, df_bulges, df_energies], axis=1))
+#DF_TOTAL = pd.concat([df_loops, df_32, df_nucleotides, df_base_features, df_bulges, df_energies], axis=1, join='inner')
 DF_TOTAL.to_csv(f"features_table_for_{user_file}", sep="\t")
 
 
