@@ -4,23 +4,22 @@ import os
 
 if __name__=="__main__":
    user_file = sys.argv[1]
-   #user_file2 = sys.argv[2]
    user_file2 = sys.argv[2]
 
 # BASE
 
-file_path = user_file #'pred_base.txt'
+file_path = user_file 
 df1 = pd.read_csv(file_path, sep='\t')
 df1 = df1[['miRNA name', 'prediction']]
 
 # POTENTIAL
 
-file_path = user_file2 #+ "_final_hairpins.txt_potential_RNAfold.txt_pred_potential.tsv" #'pred_pot.txt'
+file_path = user_file2 
 df = pd.read_csv(file_path, sep='\t')
 
 # Crea nuove colonne per mutation e position
-df['mutation'] = df['miRNA name'].str.extract(r'([A-Z]-[A-Z])')  # Estrae U-A, U-C, ecc.
-df['position'] = df['miRNA name'].str.extract(r'(pos=\d+)')       # Estrae pos=numero
+df['mutation'] = df['miRNA name'].str.extract(r'([A-Z]-[A-Z])')  # Estracts U-A, U-C, ecc.
+df['position'] = df['miRNA name'].str.extract(r'(pos=\d+)')       # Estracts pos=numero
 
 # Rimuove mutation e position dalla colonna 'miRNA name'
 df['miRNA name'] = df['miRNA name'].str.replace(r' [A-Z]-[A-Z], pos=\d+', '', regex=True)
