@@ -149,4 +149,11 @@ The **miR-RF_classes** is the second application in the miR-RF repository. It pr
 - **S** (Spurious);
 - **I** (Inducible). 
 
+### Overview
+
+A comprehensive in silico analysis is undertaken to evaluate the potential impact of SNV on the structural stability/viability of precursor miRNA in Homo Sapiens.  All the possible SNVs with respect to the reference sequence are inserted in silico, individually at every position in all the human miRNA precursors. All the in silico generated sequences is processed according to the miR-RF application workflow (secondary structure prediction by RNAfold, computation of descriptive features and classification), and comparison between the class assigned to the in silico mutated sequences and the reference sequence were used as a proxy to assess the potential impact. Four different outcomes are possible:  
+- **Neutral SNV**: both the reference miRNA sequence and the mutated sequence are evaluated as **2** --> SNP is considered neutral and miRNAs with this feature are classified as **R**;
+- **Deactivating SNV**: reference miRNA sequence is evaluated as **2** (YES); mutated miRNA sequence is evaluated as **1** --> SNP is considered damaging and miRNAs with at least one deactivating SNP are classified as **D**;
+- **No impact SNV**: both the reference sequence and the mutated sequences are evaluated as **1** --> SNP has no impact and miRNAs with this feature were classified as **S**;
+- **Activating SNV**: reference miRNA sequence evaluated as **1**; mutated sequence as **2** --> SNP is considered activating and miRNAs with at least one are classified as **I**.
 
