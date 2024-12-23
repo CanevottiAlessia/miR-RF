@@ -2,8 +2,8 @@
   The "miR-RF" repository hosts a machine learning-based application designed for pre-microRNAs evaluation and classification. 
 
 This repository hosts 2 distinct applications: 
-1. miR-RF --> predictive tool using the Random Forest machine learning algorithm to evaluate pre-miRNAs viability;
-2. miR-RF_classes --> tool classifing pre-miRNAs into 4 classes: R, D, S and I.
+>1. miR-RF --> predictive tool using the Random Forest machine learning algorithm to evaluate pre-miRNAs viability;
+>2. miR-RF_classes --> tool classifing pre-miRNAs into 4 classes: R, D, S and I.
 
 ---
 
