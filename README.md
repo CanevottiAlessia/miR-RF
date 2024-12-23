@@ -27,16 +27,13 @@ The miR-RF application is comprised of Python and R scripts:
 
 ### Input Requirements
 
-- The application accepts RNAfold output files as inputs, structured in the following format:
+- The application accepts RNAfold files as inputs, structured in the following format:
 1. Header line starting with ">";
 2. Sequence, reported with A, G, C and U letters;
 3. MFE structure, reported within round brackets;
 4. Ensemble structure, with energy reported in square brackets;
 5. Centroid structure, with its energy and the minimal base-pair distance to all the structures in the thermodynamic ensemble, reported in curly brackets;
 6. Frequency of MFE structure in ensemble and ensemble diversity.
-
-- Multi-FASTA format is also supported;
-
 
 In order to obtain the appropriate input for miR-RF, you can install RNAfold Vienna package on your machine, by running:
 
@@ -46,7 +43,7 @@ conda install -c "bioconda/label/cf201901" viennarna
 RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <input_file> > <output_RNAfold_file>
 ```
 
-This command creates the <output_RNAfold_file> file, which is the input for miR-RF. 
+This command creates the <output_RNAfold_file> file, which is the input for miR-RF. The <input_file> is a FASTA or a multi-FASTA file. 
 
 **Important notes**:
 - The header/s in the FASTA file CANNOT contain values separated by "\t". Therefore, you can convert the header/s into a different format, by using the provided `format_headers.py` Python script:
