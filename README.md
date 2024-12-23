@@ -173,7 +173,8 @@ All the necessary files are present in the miR-RF_classes directory, that you sh
  - `make_first_classes.py`: Python script for giving a temporary class to each pre-miRNA;
  - `make_final_classes.py`: Python script for giving the definitive class, corrected with the Fisher test, to each pre-miRNA.
 
-- The miR-RF_classes application works in the same environment as miR-RF application. 
+
+- The miR-RF_classes application works in the same environment as miR-RF application, make sure it is activated. 
 - All the above mentioned requirements valid for miR-RF application has to be respected also for miR-RF_classes tool.
 
 
