@@ -27,15 +27,16 @@ The miR-RF application is comprised of Python and R scripts:
 
 ### Input Requirements
 
-The application accepts RNAfold output files as inputs, structured in the following format:
+- The application accepts RNAfold output files as inputs, structured in the following format:
 1. Header line starting with ">";
 2. Sequence, reported with A, G, C and U letters;
 3. MFE structure, reported within round brackets;
 4. Ensemble structure, with energy reported in square brackets;
 5. Centroid structure, with its energy and the minimal base-pair distance to all the structures in the thermodynamic ensemble, reported in curly brackets;
 6. Frequency of MFE structure in ensemble and ensemble diversity.
-   
-- Multi-FASTA format is also supported.
+
+- Multi-FASTA format is also supported;
+
 
 In order to obtain the appropriate input for miR-RF, you can install RNAfold Vienna package on your machine, by running:
 
@@ -47,22 +48,17 @@ RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <input_file> > <output
 
 This command creates the <output_RNAfold_file> file, which is the input for miR-RF. 
 
-- Important note: since the header cannot contain values separated by "\t", the application converts any "\t" present in the header into a single space " ". 
+**Important notes**:
+- The header/s in the FASTA file CANNOT contain values separated by "\t". Therefore, you can convert the header/s into a different format, by using the provided `format_headers.py` Python script:
 
-  For example, from this input:
-  
-  ```plaintext
-  >hsa-let-7a-1  first_example  1
-  ```
-  to: 
-  
-  ```plaintext
-  >hsa-let-7a-1 first example 1
-  ```
+```bash
+python3 format_headers.py <input_file> <output_file>
+```
+It replaces single spaces ' ' and tabs '\t' into '_'. Any other separator will remain the same. 
 
-  Note: consider that the code only processes and replaces headers presenting the following symbol: "\t". Any other formats will remain in the final output as written in input.  
+- The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. 
   
-  
+
 ### miR-RF input example
 
 Sample input file structure:
@@ -150,7 +146,7 @@ We recommend creating a new directory to neatly store all the requirements for m
 
 ># **miR-RF_classes APPLICATION**
 
-The **miR-RF_classes** is the second application in the miR-RF repository. It provides a workflow, based on Python and R scripts, that classifies each pre-miRNA, previously evaluated with the miR-RF application, into one of four distinct classes.
+The **miR-RF_classes** is the second application in the miR-RF repository. It provides a workflow, based on Python and R scripts, that classifies each pre-miRNA, previously evaluated with the miR-RF application, into one of four distinct classes:
 - **R** (Resilient);
 - **D** (Dispensable);
 - **S** (Spurious);
