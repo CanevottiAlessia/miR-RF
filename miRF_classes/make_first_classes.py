@@ -79,8 +79,7 @@ mirbase_output_counts_file.close()
 
 result = classify_mirna(mirbase_output_counts)
 
-# for mirna, classification in result.items():
-#     print(f"{mirna}: {classification}")
+
 
 # I want the counts for each class
 
