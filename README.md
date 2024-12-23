@@ -2,8 +2,8 @@
   The "miR-RF" repository hosts a machine learning-based application designed for pre-microRNAs evaluation and classification. 
 
 This repository hosts 2 distinct applications: 
->1. miR-RF --> predictive tool using the Random Forest machine learning algorithm to evaluate pre-miRNAs viability;
->2. miR-RF_classes --> tool classifing pre-miRNAs into 4 classes: R, D, S and I.
+1. miR-RF --> predictive tool using the Random Forest machine learning algorithm to evaluate pre-miRNAs viability;
+2. miR-RF_classes --> tool classifing pre-miRNAs into 4 classes: R, D, S and I.
 
 ---
 
@@ -91,7 +91,6 @@ The output file contains each pre-miRNA name and the corresponding prediction:
 We recommend creating a new directory to neatly store all the requirements for miR-RF. This facilitates an organized environment for running the application efficiently. 
 
 1. Conda Installation in Command Line:
-
    - Follow the instructions https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html to install and activate Conda on your system.
 
 3. Activating the Conda environment:
