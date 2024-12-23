@@ -145,3 +145,13 @@ We recommend creating a new directory to neatly store all the requirements for m
 
    Ensure that the input file follows the specified format (see Input requirements). Upon executing this command, the `miR_application.py` program will process the input data, execute feature extraction, and 
    generate predictions using the trained model.
+
+
+
+># **miR-RF_classes APPLICATION**
+
+The miR-RF_classes is the second application of miR-RF repository: it is a workflow that for each pre-miRNA, evaluated with miR-RF application, restitutes a classification into 4 distict classes: 
+- **R** (Resilient pre-miRNA);
+- **D** (Dispensable pre-miRNA);
+- **S** (Spurious pre-miRNA);
+- **I** (Inducible pre-miRNA)
