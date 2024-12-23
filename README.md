@@ -7,7 +7,7 @@ This repository hosts 2 distinct applications:
 
 ---
 
-# **miR-RF application**
+># **miR-RF APPLICATION**
 
 The miR-RF application is a predictive tool for evaluating pre-miRNAs based on the machine learning algorithm Random Forest. It consists of Python and R scripts designed to process RNAfold Vienna outputs, extract characteristic features, perform machine learning analysis and generate predictions.
 
