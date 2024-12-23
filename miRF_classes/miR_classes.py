@@ -14,7 +14,7 @@ def remove_temp_files():
 
 def runner(rnafold, fasta, base_pred, out):
     try:
-        os.system("python3 3_get_fasta_for_insertion.py " + rnafold)
+        os.system("python3 get_fasta_for_insertion.py " + rnafold)
     except:
         print("Error: Failed to execute. Please, enter the input file name.")
         pass
