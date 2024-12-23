@@ -190,14 +190,12 @@ The miR-RF_classes application has 4 requirements for running:
   {((((.(((((((((((((((((((((.....(((...((({....}))).))))))))))))))))))))))))))))} [-35.18]
   (((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) {-34.20 d=3.42}
    frequency of mfe structure in ensemble 0.203686; ensemble diversity 5.63
-  ...
   ```
   2. FASTA file: this has to be the FASTA from which the RNAfold file is obtained:
 
   ```plaintext
   >hsa-let-7a-1
   UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
-  ...
   ```
 
   3. Prediction file: this is the output of miR-RF application:
