@@ -4,25 +4,6 @@ import sys
 if __name__=="__main__":
    user_file = sys.argv[1]
    user_file2 = sys.argv[2]
-#file_path = user_file
-
-
-# convert the T to U
-#input_file = "fasta.fa"
-#output_file = "fasta_U.fa"
-
-# Open the input file for reading
-#with open(user_file2, 'r') as infile:
-    # Open the output file for writing
- #   with open(output_file, 'w') as outfile:
-  #      for line in infile:
-   #         # If the line starts with ">", it's a header; write it directly to the output file
-    #        if line.startswith(">"):
-     #           outfile.write(line)
-      #      else:
-       #         # Convert 'T' to 'U' in the sequence lines
-        #        converted_sequence = line.replace('T', 'U')
-         #       outfile.write(converted_sequence)
 
 
 def convert_bases(seq):
@@ -61,7 +42,6 @@ f.close()
 
 # Read the complete miRNA sequences from the file
 complete_sequences = {}
-#for filec in glob.glob(user_file + ".fa"):
 with open(user_file, 'r') as f:
     lines = f.readlines()
 header = ""
@@ -103,7 +83,7 @@ output_file = user_file + '_temp_SNPpot_SEQinsterted_fasta.txt'
 rnafold_output_file = user_file2 + '_potential_RNAfold.txt'  # Define where RNAfold output will be saved
 try:
     # Construct the RNAfold command
-    command = ["RNAfold", "-p", "-d2", "--noLP", "--noDP", "--noPS", "--jobs=40", output_file]
+    command = ["RNAfold", "-p", "-d2", "--noLP", "--noDP", "--noPS", "--jobs=1", output_file]
     # Open the RNAfold output file for writing
     with open(rnafold_output_file, "w") as rnafold_out:
         # Run the RNAfold command
