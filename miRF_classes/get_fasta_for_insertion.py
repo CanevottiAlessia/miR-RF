@@ -39,8 +39,8 @@ if len(RNAfold_output) % 6 != 0:
     quit()
 
 
-# I create a function that removes the dots only at the beginning and at the end of each dots_brackets1 notation,
-# creating a file that only has the clean notations (clean_seq.out) which will be the new input file
+# I create a function that removes the dots only at the beginning and at the end of each dots_brackets1 notation, 
+# creating a file that only has the clean notations which will be the new input file
 file_output_rnafold = open(output_file, "r")
 RNAfold_output = file_output_rnafold.readlines()
 header = []  # This is for the headers
