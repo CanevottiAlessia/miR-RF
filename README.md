@@ -54,7 +54,7 @@ python3 format_headers.py <input_file> <output_file>
 It replaces single spaces ' ' and tabs '\t' into '_'. Any other separator will remain the same. 
 
 - The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. 
-  
+- The sequence/s CANNOT be made by more than five hairpins, you need to remove them (all the respective structures).   
 
 ### miR-RF input example
 
@@ -151,9 +151,77 @@ The **miR-RF_classes** is the second application in the miR-RF repository. It pr
 
 ### Overview
 
-A comprehensive in silico analysis is undertaken to evaluate the potential impact of SNV on the structural stability/viability of precursor miRNA in Homo Sapiens.  All the possible SNVs with respect to the reference sequence are inserted in silico, individually at every position in all the human miRNA precursors. All the in silico generated sequences is processed according to the miR-RF application workflow (secondary structure prediction by RNAfold, computation of descriptive features and classification), and comparison between the class assigned to the in silico mutated sequences and the reference sequence were used as a proxy to assess the potential impact. Four different outcomes are possible:  
+A comprehensive in silico analysis can be undertaken to evaluate the potential impact of SNV on the structural stability/viability of precursor miRNAs. All the possible SNVs with respect to the reference sequence can be inserted, individually at every position in one or more pre-miRNAs. The newly generated sequence/s is/are processed according to the miR-RF application workflow, and comparison between the class assigned to the in silico mutated sequences and the reference sequence are used as a proxy to assess the potential impact. 
+Four different outcomes are possible:  
 - **Neutral SNV**: both the reference miRNA sequence and the mutated sequence are evaluated as **2** --> SNP is considered neutral and miRNAs with this feature are classified as **R**;
-- **Deactivating SNV**: reference miRNA sequence is evaluated as **2** (YES); mutated miRNA sequence is evaluated as **1** --> SNP is considered damaging and miRNAs with at least one deactivating SNP are classified as **D**;
+- **Deactivating SNV**: reference miRNA sequence is evaluated as **2**; mutated miRNA sequence is evaluated as **1** --> SNP is considered damaging and miRNAs with at least one deactivating SNP are classified as **D**;
 - **No impact SNV**: both the reference sequence and the mutated sequences are evaluated as **1** --> SNP has no impact and miRNAs with this feature were classified as **S**;
 - **Activating SNV**: reference miRNA sequence evaluated as **1**; mutated sequence as **2** --> SNP is considered activating and miRNAs with at least one are classified as **I**.
 
+### Requirements
+
+All the necessary files are present in the miR-RF_classes directory, that you should have already downloaded when cloned the URL provided. The files included are the following: 
+
+ - `miR_classes.py`: Python script that executes the workflow;
+ - `format_header.py`: Python script for formatting the header;
+ - `get_fasta_for_insertion.py`: Python script for hairpin/s processing;
+ - `SNP_insertion.py`: Python script for inserting SNPs in reference sequence/s;
+ - `2_miR_application.py`: Executor program coordinating the feature extraction (`PY_miR_features_extraction.py`) and prediction processes (`make_miR_pred_classes2.R`), based on `trained_model_new.RDS`;
+ - `merge_table.py`: Python script for comparing the predictions made on reference sequence/s and the prediction/s made on sequence/s with all the potential SNP inserted;
+ - `get_lens.py`: Python script for extracting hairpin/s length/s;
+ - `make_fisher_test.py`: Python script for computing the fisher test for adjusting the class;
+ - `make_first_classes.py`: Python script for giving a temporary class to each pre-miRNA;
+ - `make_final_classes.py`: Python script for giving the definitive class, corrected with the Fisher test, to each pre-miRNA.
+
+- The miR-RF_classes application works in the same environment as miR-RF application. 
+- All the above mentioned requirements valid for miR-RF application has to be respected also for miR-RF_classes tool.
+
+
+### Running miR-RF_classes
+
+The miR-RF_classes application has 4 requirements for running: 
+
+  1. RNAfold file: this has to be the same file you gave as input to miR-RF application:
+
+  ```plaintext
+  >hsa-let-7a-1
+  UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
+  (((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) (-34.20)
+  {((((.(((((((((((((((((((((.....(((...((({....}))).))))))))))))))))))))))))))))} [-35.18]
+  (((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) {-34.20 d=3.42}
+   frequency of mfe structure in ensemble 0.203686; ensemble diversity 5.63
+  ...
+  ```
+  2. FASTA file: this has to be the FASTA from which the RNAfold file is obtained:
+
+  ```plaintext
+  >hsa-let-7a-1
+  UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
+  ...
+  ```
+
+  3. Prediction file: this is the output of miR-RF application:
+
+  ```plaintext
+  "miRNA name"       "prediction"
+  ">hsa-let-7a-1"       "2"
+  ```
+  
+  4. Output file: this is the output of miR-RF_classes application -- you have to choose the name of the file.
+
+  ```plaintext
+  "miRNA name"       "class"
+  ">hsa-let-7a-1"       "R"
+  ```
+
+In command line: 
+
+```bash
+python3 miR_classes.py <input_file 1> <input_file 2> <input_file 3> <output_file>
+```
+
+Example Usage:
+
+```bash
+python3 miR_classes.py example_input_sequences.txt example_input_sequences.fa predictions_output.txt classes_output.txt
+```
