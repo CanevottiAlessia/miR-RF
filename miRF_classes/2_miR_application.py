@@ -21,9 +21,5 @@ def runner(inp):
 
 
 if __name__=="__main__":
-#    if len(sys.argv) != 3:
-#        print("Usage: python3 scripts.py <INPUT> <OUTPUT>")
-#    else:
      user_file = sys.argv[1]
-     #final_file = sys.argv[2]
      runner(user_file)
