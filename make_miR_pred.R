@@ -23,7 +23,8 @@ input_R <- read.table(name_table, row.names = 1, header = TRUE, sep = "\t", chec
 for (col in colnames(input_R)) {
   input_R[, col] <- as.numeric(input_R[, col])
 }
-input_R[is.na(input_R)] <- 0
+pseudo_count <- 1e-6
+input_R[is.na(input_R)] <- pseudo_count
 
 column_index <- which(names(input_R) == "real miRNA")
 new_column_order <- c(names(input_R)[-column_index], "real miRNA")
