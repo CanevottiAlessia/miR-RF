@@ -24,8 +24,18 @@ input_R <- read.table(name_table, row.names = 1, header = TRUE, sep = "\t", chec
 for (col in colnames(input_R)) {
   input_R[, col] <- as.numeric(input_R[, col])
 }
+
+# .................................... MANAGEMENT ..........................................
+# Management of too long hairpins (>5 loops)
 pseudo_count <- 1e-6
 input_R[is.na(input_R)] <- pseudo_count
+# Management of null hairpins (miRNAs without loops after the SNP substitution)
+input_R[input_R$`hairpin length` == 0, ] <- lapply(input_R[input_R$`hairpin length` == 0, ], 
+                                                           function(x) ifelse(x == 0, 1e-6, x))
+# I need to temporaly assign 0 to "real miRNA" column
+input_R$`real miRNA`=0
+
+# .................................... PROCEED ............................................
 
 column_index <- which(names(input_R) == "real miRNA")
 new_column_order <- c(names(input_R)[-column_index], "real miRNA")
