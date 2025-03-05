@@ -3,7 +3,7 @@
 
 This repository hosts 2 distinct applications: 
 1. miR-RF --> predictive tool using the Random Forest machine learning algorithm to evaluate pre-miRNAs viability;
-2. miR-RF_classes --> tool classifing pre-miRNAs into 4 classes: R, D, S and I.
+2. miR-RF_classes --> tool classifing pre-miRNAs into 4 classes: R (Resilient), D (Dispensable), S (Spurious) and I (Inducible).
 
 ---
 
@@ -53,8 +53,12 @@ python3 format_headers.py <input_file> <output_file>
 ```
 It replaces single spaces ' ' and tabs '\t' into '_'. Any other separator will remain the same. 
 
-- The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. 
-- The sequence/s CANNOT be made by more than five hairpins, you need to remove them (all the respective structures).   
+- The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. In order to process hairpins with different names, but the same sequence, you can execute the provided `format_headers.py` Python script:
+
+```bash
+python3 format_headers.py <input_file> <output_file>
+```
+
 
 ### miR-RF input example
 
