@@ -53,11 +53,12 @@ python3 format_headers.py <input_file> <output_file>
 ```
 It replaces single spaces ' ' and tabs '\t' into '_'. Any other separator will remain the same. 
 
-- The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. In order to process hairpins with different names, but the same sequence, you can execute the provided `format_headers.py` Python script:
+- The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. In order to process hairpins with different names, but the same sequence, you can execute the provided `group_same_sequences.py` Python script:
 
 ```bash
-python3 format_headers.py <input_file> <output_file>
+python3 group_same_sequences.py <input_file> <output_file>
 ```
+The script reports only one sequence and the corresponding multiple headers separated by "|". 
 
 
 ### miR-RF input example
