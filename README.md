@@ -1,9 +1,17 @@
 # miR-RF REPOSITORY
-  The "miR-RF" repository hosts a machine learning-based application designed for pre-microRNAs evaluation and classification. 
 
-This repository hosts 2 distinct applications: 
-1. miR-RF --> predictive tool using the Random Forest machine learning algorithm to evaluate pre-miRNAs viability;
-2. miR-RF_classes --> tool classifying pre-miRNAs into 4 classes: R (Resilient), D (Dispensable), S (Spurious) and I (Inducible).
+The miR-RF repository provides a machine learning-based framework for evaluating and classifying pre-microRNAs (pre-miRNAs) using the Random Forest algorithm. This tool is designed to help in analysing the viability of pre-miRNAs and assess the potential impact of single nucleotide variations (SNVs) on their structural stability. 
+
+The repository includes two distinct applications: 
+miR-RF → A predictive tool that determines whether a given pre-miRNA is viable or not, based on its structural features;
+miR-RF_classes → A classification tool that assigns pre-miRNAs into four classes (Resilient, Dispensable, Spurious, Inducible) by evaluating how SNVs affect their structure.
+
+Overview of the two applications:
+
+| Application       | Purpose | Input | Output |
+|------------------|---------|-------|--------|
+| **miR-RF** | Predicts pre-miRNA viability using a machine learning model | RNAfold output file | "2" (Viable) or "1" (Non-viable) |
+| **miR-RF_classes** | Classifies pre-miRNAs into four functional classes based on SNV impact | RNAfold + FASTA file + output from miR-RF | **R (Resilient), D (Dispensable), S (Spurious), I (Inducible)** |
 
 ---
 
