@@ -113,6 +113,7 @@ We recommend creating a new directory to neatly store all the requirements for m
    - `make_miR_testing.R`: R script for testing the model;
    - `example_input_sequences.txt`: Example of miR-RF input;
    - `format_headers.py`: Python script for formatting the input;
+   - `group_same_sequences.py`: Python script for grouping hairpins with different headers but same sequence;
    - `miR-RF_classes`: Directory of the second application. 
   
 4. Use `miR_configuration_file.yml` file to configure an environment suitable for running miR-RF. It contains a specific set of channel configurations and package installations essential for the execution of the application.
@@ -168,7 +169,7 @@ Four different outcomes are possible:
 
 ### Requirements
 
-All the necessary files are present in the miR-RF_classes directory, that you should have already downloaded when cloned the URL provided. The files included are the following: 
+All the necessary files are present in the miR-RF_classes directory, already downloaded when cloned the URL provided. The files are the following: 
 
  - `miR_classes.py`: Python script that executes the workflow;
  - `format_header.py`: Python script for formatting the header;
@@ -180,10 +181,6 @@ All the necessary files are present in the miR-RF_classes directory, that you sh
  - `make_fisher_test.py`: Python script for computing the fisher test for adjusting the class;
  - `make_first_classes.py`: Python script for giving a temporary class to each pre-miRNA;
  - `make_final_classes.py`: Python script for giving the definitive class, corrected with the Fisher test, to each pre-miRNA.
-
-
-- The miR-RF_classes application works in the same environment as miR-RF application, make sure it is activated. 
-- All the above mentioned requirements valid for miR-RF application has to be respected also for miR-RF_classes tool.
 
 
 ### Running miR-RF_classes
@@ -200,6 +197,7 @@ The miR-RF_classes application has 4 requirements for running:
   (((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) {-34.20 d=3.42}
    frequency of mfe structure in ensemble 0.203686; ensemble diversity 5.63
   ```
+  
   2. FASTA file: this has to be the FASTA from which the RNAfold file is obtained:
 
   ```plaintext
