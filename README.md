@@ -178,7 +178,7 @@ All the necessary files are present in the miR-RF_classes directory, already dow
  - `2_miR_application.py`: Executor program coordinating the feature extraction (`PY_miR_features_extraction.py`) and prediction processes (`make_miR_pred_classes2.R`), based on `trained_model_new.RDS`;
  - `merge_table.py`: Python script for comparing the predictions made on reference sequence/s and the prediction/s made on sequence/s with all the potential SNP inserted;
  - `get_lens.py`: Python script for extracting hairpin/s length/s;
- - `make_fisher_test.py`: Python script for computing the fisher test for adjusting the class;
+ - `make_fisher_test.py`: Python script for computing the fisher test for adjusting the classification;
  - `make_first_classes.py`: Python script for giving a temporary class to each pre-miRNA;
  - `make_final_classes.py`: Python script for giving the definitive class, corrected with the Fisher test, to each pre-miRNA.
 
