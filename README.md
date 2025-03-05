@@ -3,7 +3,7 @@
 
 This repository hosts 2 distinct applications: 
 1. miR-RF --> predictive tool using the Random Forest machine learning algorithm to evaluate pre-miRNAs viability;
-2. miR-RF_classes --> tool classifing pre-miRNAs into 4 classes: R (Resilient), D (Dispensable), S (Spurious) and I (Inducible).
+2. miR-RF_classes --> tool classifying pre-miRNAs into 4 classes: R (Resilient), D (Dispensable), S (Spurious) and I (Inducible).
 
 ---
 
@@ -92,7 +92,7 @@ We recommend creating a new directory to neatly store all the requirements for m
    - Follow the instructions https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html to install and activate Conda on your system.
 
 3. Activating the Conda environment:
-   - Once Conda is installed and activated, clone the URL provided, this imports in you machine all the files becessary for miR-RF to work:
+   - Once Conda is installed and activated, clone the URL provided, this imports in you machine all the necessary files for miR-RF to work:
    
    ```bash
    git clone <repository_URL>
@@ -112,7 +112,7 @@ We recommend creating a new directory to neatly store all the requirements for m
    - `format_headers.py`: Python script for formatting the input;
    - `miR-RF_classes`: Directory of the second application. 
   
-4. Use `miR_configuration_file.yml` file to configurate an environment suitable for running miR-RF. It contains a specific set of channel configurations and package installations essential for the execution of the application.
+4. Use `miR_configuration_file.yml` file to configure an environment suitable for running miR-RF. It contains a specific set of channel configurations and package installations essential for the execution of the application.
      
    ```bash
    conda env create -f miR_configuration_file.yml
