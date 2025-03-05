@@ -5,8 +5,8 @@ The miR-RF repository provides a machine learning-based framework for evaluating
 The repository includes two distinct applications: miR-RF and miR-RF_classes. 
 | **Application**       | **Purpose** | **Input** | **Output** |
 |---------------------|---------|-------|--------|
-| *miR-RF* | Determines whether a given pre-miRNA is viable or not, based on its structural features | RNAfold output file | "2" (Viable) or "1" (Non-viable) |
-| *miR-RF_classes* | Classifies pre-miRNAs into four classes based on SNV impact | RNAfold + FASTA file + output from miR-RF | R (Resilient), D (Dispensable), S (Spurious), I (Inducible) |
+| **miR-RF** | Determines whether a given pre-miRNA is viable or not, based on its structural features | RNAfold output file | "2" (Viable) or "1" (Non-viable) |
+| **miR-RF_classes** | Classifies pre-miRNAs into four classes based on SNV impact | RNAfold + FASTA file + output from miR-RF | R (Resilient), D (Dispensable), S (Spurious), I (Inducible) |
 
 ---
 
