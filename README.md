@@ -46,14 +46,14 @@ RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <input_file> > <output
 This command creates the <output_RNAfold_file> file, which is the input for miR-RF. The <input_file> is a FASTA or a multi-FASTA file. 
 
 **Important notes**:
-- The header/s in the FASTA file CANNOT contain values separated by "\t". Therefore, you can convert the header/s into a different format, by using the provided `format_headers.py` Python script:
+- The header/s in the FASTA file CANNOT contain values separated by "\t". Therefore, you can convert the header/s into a different format, by using the provided `format_headers.py` Python script as:
 
 ```bash
 python3 format_headers.py <input_file> <output_file>
 ```
 It replaces single spaces ' ' and tabs '\t' into '_'. Any other separator will remain the same. 
 
-- The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. In order to process hairpins with different names, but the same sequence, you can execute the provided `group_same_sequences.py` Python script:
+- The header/s and the respective sequence/s must be different for each entry. Two or more miRNAs, even if they have different names, CANNOT have the same sequence. In order to process this type of hairpins, you can execute the provided `group_same_sequences.py` Python script as:
 
 ```bash
 python3 group_same_sequences.py <input_file> <output_file>
