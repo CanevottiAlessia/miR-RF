@@ -1,3 +1,10 @@
+import os
+import sys
+
+if __name__=="__main__":
+   user_file = sys.argv[1]
+   user_file2 = sys.argv[2]
+    
 def read_fasta(file_path):
     sequences = {}
     with open(file_path, "r") as file:
@@ -33,8 +40,12 @@ def write_grouped_fasta(output_path, sequences):
             file.write("|".join(headers) + "\n")
             file.write(seq + "\n")
 
-# Esegui il codice
-file_path = "anim_panpan_U.fa" 
-output_path = "panpan_grouped.fa" 
-sequences = read_fasta(file_path)
-write_grouped_fasta(output_path, sequences)
+#file_path = "input.fa" 
+#output_path = "output.fa" 
+#sequences = read_fasta(file_path)
+#write_grouped_fasta(output_path, sequences)
+
+# Use
+input_file = user_file
+output_file = user_file2
+write_grouped_fasta(input_file, output_file)
