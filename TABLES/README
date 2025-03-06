@@ -1,7 +1,4 @@
-The current folder contains 3 files:
+The current folder contains 2 files:
 
-1. 'hg19_SNPeffect_table.zip' ->  
-2. 'hg38_SNPeffect_table.zip' -> 
-3. 
-3. 
-3. 
+`hg19_SNPeffect_table.zip` -> table with chromosome, SNP genome position, strand, reference base, alternative base, miRNA name, SNP effect, gnomADg allele frequency for the human genome assembly GRCh37
+`hg38_SNPeffect_table.zip` -> table with chromosome, SNP genome position, strand, reference base, alternative base, miRNA name, SNP effect, gnomADg allele frequency for the human genome assembly GRCh38
