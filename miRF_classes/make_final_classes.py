@@ -10,11 +10,11 @@ if __name__=="__main__":
 
 # Read the input files
 is_class = pd.read_csv(user_file2, sep="\t") #"IS_class.tsv", sep="\t")
-is_class = is_class.iloc[:, [0, 6]]  # Take the first and the last columns
+is_class = is_class.iloc[:, [0, -1]]  # Take the first and the last columns
 is_class.columns = ["mirna_name", "status"]
 
 dr_class = pd.read_csv(user_file, sep="\t") #"DR_class.tsv", sep="\t")
-dr_class = dr_class.iloc[:, [0, 6]]  # Take the first and the last columns
+dr_class = dr_class.iloc[:, [0, -1]]  # Take the first and the last columns
 dr_class.columns = ["mirna_name", "status"]
 
 classes_temp = pd.read_csv(user_file3, sep="\t", header=None, names=['mirna_name', 'status']) 
