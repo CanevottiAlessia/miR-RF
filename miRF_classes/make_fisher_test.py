@@ -69,7 +69,7 @@ def perform_fisher_analysis(mirna_counts, mirna_lengths, error_val, test_val, ou
         results.append((mirna, count, length, processed_len, error_val, test_val, p_value))
         p_values.append(p_value)
 
-    # Calcola FDR
+    # Calcola FDR con metodo Benjamini-Hochberg
     _, fdr_values, _, _ = multipletests(p_values, method='fdr_bh')
 
     # Scrivi risultati
@@ -79,3 +79,32 @@ def perform_fisher_analysis(mirna_counts, mirna_lengths, error_val, test_val, ou
             fdr = fdr_values[i]
             result_label = label_positive if fdr < 0.05 else label_negative
             output.write(f"{mirna}\t{count}\t{length}\t{proc_len}\t{error}\t{test}\t{pval:.4g}\t{fdr:.4g}\t{result_label}\n")
+
+# === 5. ESEGUI FISHER PER ATTIVATI ===
+activated_counts = count_mirnas_by_status(output_file_activated, "activated")
+mirna_lengths = read_lengths(user_file2)
+output_file_IS = user_file + "_temp_IS_class.tsv"
+
+perform_fisher_analysis(
+    mirna_counts=activated_counts,
+    mirna_lengths=mirna_lengths,
+    error_val=3.86,
+    test_val=189.14,
+    output_path=output_file_IS,
+    label_positive="I",
+    label_negative="IS"
+)
+
+# === 6. ESEGUI FISHER PER DISATTIVATI ===
+deactivated_counts = count_mirnas_by_status(output_file_deactivated, "deactivated")
+output_file_DR = user_file + "_temp_DR_class.tsv"
+
+perform_fisher_analysis(
+    mirna_counts=deactivated_counts,
+    mirna_lengths=mirna_lengths,
+    error_val=13.51,
+    test_val=179.49,
+    output_path=output_file_DR,
+    label_positive="D",
+    label_negative="DR"
+)
