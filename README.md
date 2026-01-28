@@ -102,4 +102,4 @@ https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/
 
 ## Citation
 
-If you use miR-RF, please cite: "ciao ciao"
+If you use miR-RF, please cite: "NON LO SO ANCORA, CIAO"
