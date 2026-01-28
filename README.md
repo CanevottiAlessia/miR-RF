@@ -92,7 +92,7 @@ An interactive web application for exploration and filtering of the annotations 
 ## Software availability
 
 miR-RF is freely available as an open-source software package at https://github.com/CanevottiAlessia/miR-RF.git.
-The interactive pre-miRNA Annotation Browser described in this study is accessible at https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/, github: .
+The interactive pre-miRNA Annotation Browser described in this study is accessible at https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/, github: https://github.com/CanevottiAlessia/Streamlit-miR-RF.
 
 ---
 
