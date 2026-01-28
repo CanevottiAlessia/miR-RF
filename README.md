@@ -42,10 +42,10 @@ Predictions are based exclusively on RNA secondary structure features and do not
 
 Each pre-miRNA is assigned to one of four classes:
 
-- **R (Resilient):** tolerant to variation  
-- **D (Dispensable):** sensitive to deactivating variants  
-- **I (Inducible):** activated by specific variants  
-- **S (Spurious):** structurally unstable  
+- **R (Resilient):** tolerant to any variation  
+- **D (Dispensable):** deactivated by LoF variants  
+- **I (Inducible):** activated by GoF variants  
+- **S (Spurious):** untolerant to any variation  
 
 ---
 
