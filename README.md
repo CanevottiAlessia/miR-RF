@@ -45,7 +45,7 @@ Each pre-miRNA is assigned to one of four classes:
 - **R (Resilient):** tolerant to any variation  
 - **D (Dispensable):** deactivated by LoF variants  
 - **I (Inducible):** activated by GoF variants  
-- **S (Spurious):** untolerant to any variation  
+- **S (Spurious):** intolerant to any variation  
 
 ---
 
@@ -91,9 +91,12 @@ An interactive web application for exploration and filtering of the annotations 
 
 ## Software availability
 
-miR-RF is freely available as an open-source software package at https://github.com/CanevottiAlessia/miR-RF.git.
+miR-RF is freely available as an open-source software package at 
+https://github.com/CanevottiAlessia/miR-RF.
 
-The interactive pre-miRNA Annotation Browser described in this study is accessible at https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/, github: https://github.com/CanevottiAlessia/Streamlit-miR-RF.
+The interactive pre-miRNA Annotation Browser is accessible at  
+https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/  
+(source code: https://github.com/CanevottiAlessia/Streamlit-miR-RF).
 
 ---
 
