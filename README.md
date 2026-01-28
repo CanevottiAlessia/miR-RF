@@ -81,10 +81,21 @@ Run miR-RF_classes:
 python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file>
 ```
 
+---
+
 ## Related resource
 
 An interactive web application for exploration and filtering of the annotations generated in the manuscript is available at: https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/
 
+---
+
+## Software availability
+
+miR-RF is freely available as an open-source software package at https://github.com/USERNAME/miR-RF.
+The interactive pre-miRNA Annotation Browser described in this study is accessible at https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/.
+
+---
+
 ## Citation
 
-If you use miR-RF, please cite: ciao ciao
+If you use miR-RF, please cite: "ciao ciao"
