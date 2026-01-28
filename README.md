@@ -29,10 +29,10 @@ The repository includes two command-line tools:
 
 **miR-RF** predicts whether a pre-miRNA is structurally compatible with canonical miRNA biogenesis.
 
-- **Input:** RNAfold output generated with ViennaRNA (`RNAfold -p`)
+- **Input:** RNAfold output generated with [ViennaRNA RNAfold](https://www.tbi.univie.ac.at/RNA/)
 - **Output:** Viability label (YES = 2, NO = 1)
 
-Predictions are based exclusively on structural features and do not rely on expression or conservation data.
+Predictions are based exclusively on RNA secondary structure features and do not rely on expression or evolutionary conservation data.
 
 ---
 
@@ -46,6 +46,13 @@ Each pre-miRNA is assigned to one of four classes:
 - **D (Dispensable):** sensitive to deactivating variants  
 - **I (Inducible):** activated by specific variants  
 - **S (Spurious):** structurally unstable  
+
+---
+
+## Dependencies
+
+- [ViennaRNA](https://www.tbi.univie.ac.at/RNA/) (RNAfold)
+- [Conda](https://docs.conda.io/)
 
 ---
 
