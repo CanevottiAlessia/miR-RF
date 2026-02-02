@@ -66,6 +66,7 @@ conda activate miR_RF
 ```
 
 ViennaRNA (RNAfold) is required for structure prediction.
+Also install scipy and statsmodels with conda in miR-RF environment (conda install scipy, conda install statsmodels)
 
 ## Usage
 
