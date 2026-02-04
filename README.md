@@ -91,6 +91,24 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 
 ---
 
+### miR-RF input example
+
+Sample input file structure (RNAfold output):
+
+```plaintext
+>hsa-let-7a-1
+UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
+(((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) (-34.20)
+{((((.(((((((((((((((((((((.....(((...((({....}))).))))))))))))))))))))))))))))} [-35.18]
+(((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) {-34.20 d=3.42}
+ frequency of mfe structure in ensemble 0.203686; ensemble diversity 5.63
+...
+
+"miRNA name"        "prediction"
+">hsa-let-7a-1"     "2"
+
+---
+
 ## Related resource
 
 An interactive web application for exploration and filtering of the annotations generated in the manuscript is available at: https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/
