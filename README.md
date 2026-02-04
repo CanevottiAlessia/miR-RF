@@ -42,10 +42,10 @@ Predictions are based exclusively on RNA secondary structure features and do not
 
 Each pre-miRNA is assigned to one of four classes:
 
-- R (Resilient): pre-miRNAs initially classified as "valid" that do not show a significant enrichment of LoF variants (FDR > 0.05);
-- D (Dispensable): pre-miRNAs initially classified as "valid" that show a significant enrichment of LoF variants compared to the expected number (FDR ≤ 0.05);
-- I (Inducible): pre-miRNAs initially classified as "non-valid" that show a significant enrichment of GoF variants (FDR ≤ 0.05);
-- S (Spurious): pre-miRNAs initially classified as "non-valid" that do not show a significant enrichment of GoF variants (FDR > 0.05).
+- R (Resilient): pre-miRNAs initially classified as "valid" not showing a significant enrichment of LoF variants;
+- D (Dispensable): pre-miRNAs initially classified as "valid" showing a significant enrichment of LoF variants;
+- I (Inducible): pre-miRNAs initially classified as "non-valid" showing a significant enrichment of GoF variants;
+- S (Spurious): pre-miRNAs initially classified as "non-valid" not showing a significant enrichment of GoF variants.
 
 ---
 
