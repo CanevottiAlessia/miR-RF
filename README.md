@@ -30,7 +30,7 @@ The repository includes two command-line tools:
 **miR-RF** predicts whether a pre-miRNA is structurally compatible with canonical miRNA biogenesis.
 
 - **Input:** RNAfold output generated with [ViennaRNA RNAfold](https://www.tbi.univie.ac.at/RNA/)
-- **Output:** Viability label (YES = 2, NO = 1)
+- **Output:** Viability label ("valid" = 2, "non-valid" = 1)
 
 Predictions are based exclusively on RNA secondary structure features and do not rely on expression or evolutionary conservation data.
 
@@ -42,10 +42,10 @@ Predictions are based exclusively on RNA secondary structure features and do not
 
 Each pre-miRNA is assigned to one of four classes:
 
-- **R (Resilient):** tolerant to any variation  
-- **D (Dispensable):** deactivated by LoF variants  
-- **I (Inducible):** activated by GoF variants  
-- **S (Spurious):** intolerant to any variation  
+- R (Resilient): pre-miRNAs initially classified as "valid" that do not show a significant enrichment of LoF variants (FDR > 0.05);
+- D (Dispensable): pre-miRNAs initially classified as "valid" that show a significant enrichment of LoF variants compared to the expected number (FDR ≤ 0.05);
+- I (Inducible): pre-miRNAs initially classified as "non-valid" that show a significant enrichment of GoF variants (FDR ≤ 0.05);
+- S (Spurious): pre-miRNAs initially classified as "non-valid" that do not show a significant enrichment of GoF variants (FDR > 0.05).
 
 ---
 
