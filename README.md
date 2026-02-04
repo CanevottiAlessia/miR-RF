@@ -71,16 +71,22 @@ Also install scipy and statsmodels with conda in miR-RF environment (conda insta
 
 ## Usage
 
+Run RNAFold:
+
+```bash
+RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <input_file> > <output_RNAfold>
+```
+
 Run miR-RF:
 
 ```bash
-python3 miR_application.py <RNAfold_input> <output_file>
+python3 miR_application.py <output_RNAfold> <output_file_miR-RF>
 ```
 
 Run miR-RF_classes:
 
 ```bash
-python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file>
+python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_miR-RF>
 ```
 
 ---
