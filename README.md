@@ -115,7 +115,7 @@ miR-RF output
 miR-RF_classes output
 
 ```plaintext
-"miRNA name"        "class"
+"miRNA name"        "status"
 ">hsa-let-7a-1"     "R"
 ```
 
