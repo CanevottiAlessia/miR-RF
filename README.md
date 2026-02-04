@@ -8,9 +8,9 @@ The software implements the methodology described in the accompanying manuscript
 ## Summary
 
 miR-RF integrates RNA secondary structure features with a Random Forest classifier to:
-- assess pre-miRNA structural viability;
+- assess pre-miRNA structural stability;
 - evaluate sensitivity to single-nucleotide variation (SNV);
-- classify pre-miRNAs into biologically interpretable robustness classes.
+- classify pre-miRNAs into robustness classes.
 
 ---
 
@@ -19,7 +19,7 @@ miR-RF integrates RNA secondary structure features with a Random Forest classifi
 The repository includes two command-line tools:
 
 | Tool | Function |
-|------|----------|
+|:----:|:--------:|
 | **miR-RF** | Binary classification of pre-miRNA structural viability |
 | **miR-RF_classes** | Classification of pre-miRNAs into robustness classes (R, D, I, S) based on *in silico* SNV analysis |
 
