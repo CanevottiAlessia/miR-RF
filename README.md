@@ -91,7 +91,7 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 
 ---
 
-### miR-RF input example
+## Example
 
 Sample input file structure (RNAfold output):
 
@@ -103,9 +103,20 @@ UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
 (((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) {-34.20 d=3.42}
  frequency of mfe structure in ensemble 0.203686; ensemble diversity 5.63
 ...
+```
 
+miR-RF output
+
+```plaintext
 "miRNA name"        "prediction"
 ">hsa-let-7a-1"     "2"
+```
+
+miR-RF_classes output
+
+```plaintext
+"miRNA name"        "class"
+">hsa-let-7a-1"     "R"
 ```
 
 ---
