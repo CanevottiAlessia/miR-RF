@@ -1,7 +1,7 @@
 # miR-RF
 
 **miR-RF** is a machine learning framework for the structural evaluation and classification of human pre-microRNAs, based on features derived from RNA secondary structure predictions.
-The software implements the methodology described in the accompanying manuscript (*An operational workflow for the systematic annotation of human miRNAs*), providing a reproducible pipeline for pre-miRNA validation and robustness assessment.
+The software implements the methodology described in the accompanying manuscript (*"An operational workflow for the systematic annotation of human miRNAs"*), providing a reproducible pipeline for pre-miRNA validation and robustness assessment.
 
 ---
 
