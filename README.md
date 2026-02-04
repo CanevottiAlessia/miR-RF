@@ -1,7 +1,7 @@
 # miR-RF
 
 **miR-RF** is a machine learning framework for the structural evaluation and classification of human pre-microRNAs, based on features derived from RNA secondary structure predictions.
-The software implements the methodology described in the accompanying manuscript (*[titolo paper]*), providing a reproducible pipeline for pre-miRNA validation and robustness assessment.
+The software implements the methodology described in the accompanying manuscript (*An operational workflow for the systematic annotation of human miRNAs*), providing a reproducible pipeline for pre-miRNA validation and robustness assessment.
 
 ---
 
@@ -30,7 +30,8 @@ The repository includes two command-line tools:
 **miR-RF** predicts whether a pre-miRNA is structurally compatible with canonical miRNA biogenesis.
 
 - **Input:** RNAfold output generated with [ViennaRNA RNAfold](https://www.tbi.univie.ac.at/RNA/)
-- **Output:** Viability label ("valid" = 2, "non-valid" = 1)
+- **Output miR-RF:** prediction labels --> "valid" = 2, "non-valid" = 1
+- **Output miR-RF_classes:** --> Structural stability class = "status" (R, D, I, S)
 
 Predictions are based exclusively on RNA secondary structure features and do not rely on expression or evolutionary conservation data.
 
