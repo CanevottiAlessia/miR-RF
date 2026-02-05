@@ -155,6 +155,21 @@ https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/
 
 ---
 
+## License
+
+This work is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following terms:
+- Attribution — appropriate credit must be given to the original authors and the accompanying manuscript.
+
+For details, see: https://creativecommons.org/licenses/by/4.0/
+
+---
+
 ## Citation
 
 If you use miR-RF, please cite: "..."
