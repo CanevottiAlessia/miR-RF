@@ -173,8 +173,6 @@ For details, see: https://creativecommons.org/licenses/by/4.0/
 
 ## Citation
 
-## Citation
-
 If you use miR-RF, please cite:
 
 Canevotti A., et al. *An operational workflow for the systematic annotation of human miRNAs*. Journal, year. DOI
