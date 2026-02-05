@@ -36,7 +36,7 @@ RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <FASTA_file> > <output
 Once the RNA secondary structure predictions are generated (<output_RNAfold>), use this file as input for miR_application.py to obtain miR-RF predictions:
 
 ```bash
-python3 miR_application.py <output_RNAfold> FASTA_file
+python3 miR_application.py <output_RNAfold> <miR-RF_output>
 ```
 **Output miR_application.py**: "valid" = 2, "non-valid" = 1
 
@@ -45,44 +45,81 @@ Optionally, if you also want to compute the structural stability classes (R, D, 
 ```bash
 python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_miR-RF>
 ```
+
 **Output miR_classes.py**: structural stability class = "status" (R, D, I, S)
 
 ---
 
 ## Example
 
-FASTA (or multi-FASTA) file as first input: 
+FASTA (or multi-FASTA) file as first input ("example_FASTA_file.fa"):
 
 ```plaintext
->hsa-let-7a-1
-UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
-
+>hsa-let-7a-3_MI0000062
+GGGUGAGGUAGUAGGUUGUAUAGUUUGGGGCUCUGCCCUGCUAUGGGAUAACUAUACAAUCUACUGUCUUUCCU
+>hsa-let-7b_MI0000063
+CGGGGUGAGGUAGUAGGUUGUGUGGUUUCAGGGCAGUGAUGUUGCCCCUCGGAAGAUAACUAUACAACCUACUGCCUUCCCUG
+>hsa-let-7c_MI0000064
+GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUGGAGC
 ```
 
-Sample input file structure (RNAfold output):
+Run RNAfold: 
+
+```bash
+RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> example_FASTA_file.fa > example_RNAfold_file.txt
+```
+
+The output (example_RNAfold_file.txt) is: 
 
 ```plaintext
->hsa-let-7a-1
-UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
-(((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) (-34.20)
-{((((.(((((((((((((((((((((.....(((...((({....}))).))))))))))))))))))))))))))))} [-35.18]
-(((((.(((((((((((((((((((((.....(((...((((....)))).))))))))))))))))))))))))))))) {-34.20 d=3.42}
- frequency of mfe structure in ensemble 0.203686; ensemble diversity 5.63
-...
+>hsa-let-7a-3_MI0000062
+GGGUGAGGUAGUAGGUUGUAUAGUUUGGGGCUCUGCCCUGCUAUGGGAUAACUAUACAAUCUACUGUCUUUCCU
+(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))) (-34.10)
+(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))} [-34.81]
+(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))) {-34.10 d=2.00}
+ frequency of mfe structure in ensemble 0.314643; ensemble diversity 3.41
+>hsa-let-7b_MI0000063
+CGGGGUGAGGUAGUAGGUUGUGUGGUUUCAGGGCAGUGAUGUUGCCCCUCGGAAGAUAACUAUACAACCUACUGCCUUCCCUG
+(((((.(((((((((((((((((((((((.((((((.....))))))...))).....))))))))))))))))))))))))) (-46.70)
+(((((.(((((((((((((((((((((((,((((((.....)))))).,.,}}....}))))))))))))))))))))))))) [-48.38]
+(((((.(((((((((((((((((((((...((((((.....))))))..........)))))))))))))))))))))))))) {-46.20 d=5.25}
+ frequency of mfe structure in ensemble 0.0651573; ensemble diversity 7.60
+>hsa-let-7c_MI0000064
+GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUGGAGC
+((.((((((..(((.(((.(((((((((((((..((.((.((...)).)).))))))))))))))).))).)))..)))))))) (-31.40)
+((.((((((..(((.(((.(((((((((((((..((.(,.({...}).,).))))))))))))))).))).)))..)))))))) [-33.10]
+((.((((((..(((.(((.(((((((((((((..((.(..(.....)..).))))))))))))))).))).)))..)))))))) {-31.20 d=4.73}
+ frequency of mfe structure in ensemble 0.0635097; ensemble diversity 7.33
 ```
 
-miR-RF output
+Run miR_application.py:
+
+```bash
+python3 miR_application.py example_RNAfold_file.txt output_miR_application.txt
+```
+
+Output:
 
 ```plaintext
 "miRNA name"        "prediction"
-">hsa-let-7a-1"     "2"
+">hsa-let-7a-3_MI0000062"     "2"
+">hsa-let-7b_MI0000063"     "2"    
+">hsa-let-7c_MI0000064"     "2"
 ```
 
-miR-RF_classes output
+Run miR-RF_classes.py:
+
+```bash
+python3 miR_classes.py example_RNAfold_file.txt example_FASTA_file.fa output_miR_application.txt output_miR-RF_classes.txt
+```
+
+Output:
 
 ```plaintext
-"miRNA name"        "status"
-">hsa-let-7a-1"     "R"
+"miRNA name"        "status
+">hsa-let-7a-3_MI0000062"     "R"
+">hsa-let-7b_MI0000063"     "R"    
+">hsa-let-7c_MI0000064"     "R"
 ```
 
 ---
