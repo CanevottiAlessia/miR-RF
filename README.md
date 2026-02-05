@@ -69,6 +69,7 @@ GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUG
 ```
 Users may replace this file with any custom FASTA or multi-FASTA file of interest.
 
+
 RNA secondary structure prediction
 
 RNA secondary structures are predicted using RNAfold.
@@ -101,6 +102,7 @@ GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUG
  frequency of mfe structure in ensemble 0.0635097; ensemble diversity 7.33
 ```
 
+
 miR-RF prediction
 
 The RNAfold output is then used as input for miR_application.py to obtain miR-RF predictions.
@@ -118,6 +120,7 @@ Example output (output_miR_application.txt):
 ">hsa-let-7b_MI0000063"     "2"    
 ">hsa-let-7c_MI0000064"     "2"
 ```
+
 
 Structural stability class assignment (optional)
 
