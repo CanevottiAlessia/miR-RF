@@ -1,4 +1,5 @@
 # miR-RF
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 **miR-RF** is a machine learning framework, composed of 3 main modules (RNAfold, miR_application.py and miR_classes.py), for the structural evaluation and classification of human pre-microRNAs, based on features derived from RNA secondary structure predictions.
 The software implements the methodology described in the accompanying manuscript (*"An operational workflow for the systematic annotation of human miRNAs"*), providing a reproducible pipeline for pre-miRNA validation and robustness assessment.
@@ -172,4 +173,8 @@ For details, see: https://creativecommons.org/licenses/by/4.0/
 
 ## Citation
 
-If you use miR-RF, please cite: "..."
+## Citation
+
+If you use miR-RF, please cite:
+
+Canevotti A., et al. *An operational workflow for the systematic annotation of human miRNAs*. Journal, year. DOI
