@@ -52,7 +52,11 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 
 ## Example
 
-FASTA (or multi-FASTA) file as first input ("example_FASTA_file.fa"):
+Below we report a complete example workflow using a FASTA (or multi-FASTA) input file.
+
+Input FASTA file
+
+An example FASTA file (example_FASTA_file.fa) is provided with the repository:
 
 ```plaintext
 >hsa-let-7a-3_MI0000062
@@ -62,14 +66,18 @@ CGGGGUGAGGUAGUAGGUUGUGUGGUUUCAGGGCAGUGAUGUUGCCCCUCGGAAGAUAACUAUACAACCUACUGCCUUCC
 >hsa-let-7c_MI0000064
 GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUGGAGC
 ```
+Users may replace this file with any custom FASTA or multi-FASTA file of interest.
 
-Run RNAfold: 
+RNA secondary structure prediction
+
+RNA secondary structures are predicted using RNAfold.
+The output file name can be freely chosen by the user (here named RNAfold_file.txt):
 
 ```bash
-RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> example_FASTA_file.fa > example_RNAfold_file.txt
+RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> example_FASTA_file.fa > RNAfold_file.txt
 ```
 
-The output (example_RNAfold_file.txt) is: 
+Example output (RNAfold_file.txt):
 
 ```plaintext
 >hsa-let-7a-3_MI0000062
@@ -92,13 +100,16 @@ GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUG
  frequency of mfe structure in ensemble 0.0635097; ensemble diversity 7.33
 ```
 
-Run miR_application.py:
+miR-RF prediction
+
+The RNAfold output is then used as input for miR_application.py to obtain miR-RF predictions.
+The output file name can be chosen arbitrarily (here output_miR_application.txt):
 
 ```bash
-python3 miR_application.py example_RNAfold_file.txt output_miR_application.txt
+python3 miR_application.py RNAfold_file.txt output_miR_application.txt
 ```
 
-Output:
+Example output (output_miR_application.txt):
 
 ```plaintext
 "miRNA name"        "prediction"
@@ -107,13 +118,16 @@ Output:
 ">hsa-let-7c_MI0000064"     "2"
 ```
 
-Run miR-RF_classes.py:
+Structural stability class assignment (optional)
+
+Finally, miR_classes.py can be run to assign structural stability classes (R, D, I, S).
+All output file names can be freely specified by the user:
 
 ```bash
 python3 miR_classes.py example_RNAfold_file.txt example_FASTA_file.fa output_miR_application.txt output_miR-RF_classes.txt
 ```
 
-Output:
+Example output (output_miR-RF_classes.txt):
 
 ```plaintext
 "miRNA name"        "status
