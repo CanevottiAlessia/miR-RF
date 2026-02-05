@@ -5,15 +5,6 @@ The software implements the methodology described in the accompanying manuscript
 
 ---
 
-## Summary
-
-miR-RF integrates RNA secondary structure features with a Random Forest (RF) classifier to:
-- assess pre-miRNA structural stability;
-- evaluate sensitivity to single-nucleotide variation (SNV);
-- classify pre-miRNAs into robustness classes.
-
----
-
 ## Components
 
 The repository includes two command-line tools:
@@ -52,41 +43,43 @@ Each pre-miRNA is assigned to one of four classes:
 
 ---
 
-## Dependencies
-
-- [ViennaRNA](https://www.tbi.univie.ac.at/RNA/) (RNAfold)
-- [Conda](https://docs.conda.io/)
-
 ---
 
 ## Installation
 
-Dependencies are managed via Conda:
+To run miR-RF, you need the following dependencies:
+- [Conda](https://docs.conda.io/)
+- [Vienna RNAfold](https://anaconda.org/bioconda/viennarna/files?version=cf201901) - required for RNA secondary structure prediction
+
+First, create and configure the Conda environment using the provided configuration file:
 
 ```bash
 conda env create -f miR_configuration_file.yml
 conda activate miR_RF
 ```
 
-ViennaRNA (RNAfold) is required for structure prediction.
+Then, install the additional required Python packages within the miR_RF environment:
 
-Also install scipy and statsmodels with conda in miR-RF environment (conda install scipy, conda install statsmodels)
+```bash
+conda install scipy
+conda install statsmodels
+```
 
 ## Usage
 
-Run RNAFold:
+After setting up the environment, start from an input FASTA file (<FASTA_file>) and predict RNA secondary structures using RNAfold:
 
 ```bash
-RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <input_file> > <output_RNAfold>
+RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <FASTA_file> > <output_RNAfold>
 ```
 
-Run miR-RF:
+Once the RNA secondary structure predictions are generated (<output_RNAfold>), use this file as input for miR_application.py to obtain miR-RF predictions:
 
 ```bash
-python3 miR_application.py <output_RNAfold> <output_file_miR-RF>
+python3 miR_application.py <output_RNAfold> FASTA_file
 ```
 
-Run miR-RF_classes:
+Optionally, if you also want to compute the structural stability classes (R, D, I, S), run miR_classes.py using the RNAfold output, the input FASTA file, and the miR-RF predictions:
 
 ```bash
 python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_miR-RF>
