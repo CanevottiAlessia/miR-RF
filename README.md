@@ -51,6 +51,14 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 
 ## Example
 
+FASTA (or multi-FASTA) file as first input: 
+
+```plaintext
+>hsa-let-7a-1
+UGGGAUGAGGUAGUAGGUUGUAUAGUUUUAGGGUCACACCCACCACUGGGAGAUAACUAUACAAUCUACUGUCUUUCCUA
+
+```
+
 Sample input file structure (RNAfold output):
 
 ```plaintext
