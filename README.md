@@ -142,6 +142,35 @@ Example output (output_miR-RF_classes.txt):
 
 ---
 
+## Additional scripts (non-core utilities)
+
+FASTA header formatting
+
+FASTA headers must not contain tab characters (\t), as these are not supported by the miR-RF pipeline and may cause parsing errors.
+If headers include tab-separated values, they should be reformatted prior to analysis.
+To facilitate this, the repository provides the format_headers.py script, which can be used as follows:
+
+```bash
+python3 format_headers.py <input_file> <output_file>
+```
+
+This script replaces all single spaces ( ) and tab characters (\t) with underscores (_). All other characters and separators are preserved unchanged.
+
+
+Handling identical sequences
+
+Each FASTA entry processed by miR-RF must be associated with a unique sequence.
+Multiple miRNAs, even if annotated with different identifiers, cannot share the same nucleotide sequence, as this would result in ambiguous feature extraction and prediction.
+To enable the analysis of hairpins with identical sequences, the repository provides the group_same_sequences.py script:
+
+```bash
+python3 group_same_sequences.py <input_file> <output_file>
+```
+
+This script collapses identical sequences into a single representative entry and reports all corresponding headers concatenated using the | character.
+
+---
+
 ## Related resource
 
 An interactive web application for exploration and filtering of the annotations generated in the manuscript is available at: https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/
