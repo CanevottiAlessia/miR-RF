@@ -3,6 +3,7 @@
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 [![Conda](https://img.shields.io/badge/environment-conda-green)](https://docs.conda.io/)
 
+---
 
 This is the main GitHub repository for **miR-RF** a machine learning tool and computational workflow for the structural evaluation and classification of human pre-microRNAs. The workflow is composed of 3 main modules: *RNAfold*, *miR_application.py* and *miR_classes.py* and implements key concepts and analytical methods described in the accompanying manuscript (*"An operational workflow for the systematic annotation of human miRNAs"*). 
 ---
