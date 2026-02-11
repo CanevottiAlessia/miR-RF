@@ -72,12 +72,10 @@ Below you can find a complete example of the workflow.
 An example FASTA file (example_FASTA_file.fa) is provided with the repository:
 
 ```plaintext
->hsa-let-7a-3_MI0000062
-GGGUGAGGUAGUAGGUUGUAUAGUUUGGGGCUCUGCCCUGCUAUGGGAUAACUAUACAAUCUACUGUCUUUCCU
->hsa-let-7b_MI0000063
-CGGGGUGAGGUAGUAGGUUGUGUGGUUUCAGGGCAGUGAUGUUGCCCCUCGGAAGAUAACUAUACAACCUACUGCCUUCCCUG
->hsa-let-7c_MI0000064
-GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUGGAGC
+>hsa-mir-30b_MI0000441_Homo_sapiens_miR-30b_stem-loop
+ACCAAGUUUCAGUUCAUGUAAACAUCCUACACUCAGCUGUAAUACAUGGAUUGGCUGGGAGGUGGAUGUUUACUUCAGCUGACUUGGA
+>hsa-mir-122_MI0000442_Homo_sapiens_miR-122_stem-loop
+CCUUAGCAGAGCUGUGGAGUGUGACAAUGGUGUUUGUGUCUAAACUAUCAAACGCCAUUAUCACACUAAAUAGCUACUGCUAGGC
 ```
 Users may replace this file with any FASTA or multi-FASTA file of interest.
 
@@ -87,31 +85,25 @@ RNA secondary structures are predicted using RNAfold.
 The name of the output file can set by the user (here RNAfold_file.txt):
 
 ```bash
-RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> example_FASTA_file.fa > RNAfold_file.txt
+RNAfold -p -d2 --noLP --noDP --noPS --jobs=3 example_FASTA_file.fa > RNAfold_file.txt
 ```
 
 
 Example output (RNAfold_file.txt):
 
 ```plaintext
->hsa-let-7a-3_MI0000062
-GGGUGAGGUAGUAGGUUGUAUAGUUUGGGGCUCUGCCCUGCUAUGGGAUAACUAUACAAUCUACUGUCUUUCCU
-(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))) (-34.10)
-(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))} [-34.81]
-(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))) {-34.10 d=2.00}
- frequency of mfe structure in ensemble 0.314643; ensemble diversity 3.41
->hsa-let-7b_MI0000063
-CGGGGUGAGGUAGUAGGUUGUGUGGUUUCAGGGCAGUGAUGUUGCCCCUCGGAAGAUAACUAUACAACCUACUGCCUUCCCUG
-(((((.(((((((((((((((((((((((.((((((.....))))))...))).....))))))))))))))))))))))))) (-46.70)
-(((((.(((((((((((((((((((((((,((((((.....)))))).,.,}}....}))))))))))))))))))))))))) [-48.38]
-(((((.(((((((((((((((((((((...((((((.....))))))..........)))))))))))))))))))))))))) {-46.20 d=5.25}
- frequency of mfe structure in ensemble 0.0651573; ensemble diversity 7.60
->hsa-let-7c_MI0000064
-GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUGGAGC
-((.((((((..(((.(((.(((((((((((((..((.((.((...)).)).))))))))))))))).))).)))..)))))))) (-31.40)
-((.((((((..(((.(((.(((((((((((((..((.(,.({...}).,).))))))))))))))).))).)))..)))))))) [-33.10]
-((.((((((..(((.(((.(((((((((((((..((.(..(.....)..).))))))))))))))).))).)))..)))))))) {-31.20 d=4.73}
- frequency of mfe structure in ensemble 0.0635097; ensemble diversity 7.33
+>hsa-mir-30b_MI0000441_Homo_sapiens_miR-30b_stem-loop
+ACCAAGUUUCAGUUCAUGUAAACAUCCUACACUCAGCUGUAAUACAUGGAUUGGCUGGGAGGUGGAUGUUUACUUCAGCUGACUUGGA
+.(((((..((((((...((((((((((.((.((((((((............))))))))..))))))))))))...))))))))))). (-36.90)
+.(((((,.{(((((...((((((((((.((.((((((({............))))))))..))))))))))))...))))))))))). [-38.11]
+.(((((..((((((...((((((((((.((.(((((((..............)))))))..))))))))))))...))))))))))). {-36.30 d=3.30}
+ frequency of mfe structure in ensemble 0.141312; ensemble diversity 4.60
+>hsa-mir-122_MI0000442_Homo_sapiens_miR-122_stem-loop
+CCUUAGCAGAGCUGUGGAGUGUGACAAUGGUGUUUGUGUCUAAACUAUCAAACGCCAUUAUCACACUAAAUAGCUACUGCUAGGC
+.((((((((((((((..(((((((.(((((((((((............))))))))))).)))))))..)))))).)))))))). (-45.70)
+.((((((((((((((..(((((((.(((((((((((.,,.....,...))))))))))).)))))))..)))))).)))))))). [-46.41]
+.((((((((((((((..(((((((.(((((((((((............))))))))))).)))))))..)))))).)))))))). {-45.70 d=2.15}
+ frequency of mfe structure in ensemble 0.316358; ensemble diversity 3.42
 ```
 
 
@@ -128,9 +120,8 @@ Example output (output_miR_application.txt):
 
 ```plaintext
 "miRNA name"        "prediction"
-">hsa-let-7a-3_MI0000062"     "2"
-">hsa-let-7b_MI0000063"     "2"    
-">hsa-let-7c_MI0000064"     "2"
+">hsa-mir-30b_MI0000441_Homo_sapiens_miR-30b_stem-loop"     "2"
+">hsa-mir-122_MI0000442_Homo_sapiens_miR-122_stem-loop"     "2"    
 ```
 
 
@@ -147,9 +138,8 @@ Example output (output_miR-RF_classes.txt):
 
 ```plaintext
 "miRNA name"        "status"	
-">hsa-let-7a-3_MI0000062"     "R"
-">hsa-let-7b_MI0000063"     "R"    
-">hsa-let-7c_MI0000064"     "R"
+">hsa-mir-30b_MI0000441_Homo_sapiens_miR-30b_stem-loop"     ""
+">hsa-mir-122_MI0000442_Homo_sapiens_miR-122_stem-loop"     "" 
 ```
 
 ---
