@@ -3,7 +3,9 @@
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 [![Conda](https://img.shields.io/badge/environment-conda-green)](https://docs.conda.io/)
 
+
 This is the main GitHub repository for **miR-RF** a machine learning tool and computational workflow for the structural evaluation and classification of human pre-microRNAs. The workflow is composed of 3 main modules: *RNAfold*, *miR_application.py* and *miR_classes.py* and implements key concepts and analytical methods described in the accompanying manuscript (*"An operational workflow for the systematic annotation of human miRNAs"*). 
+
 ---
 
 ## Installation
@@ -156,8 +158,7 @@ An interactive web application for exploration and filtering of the annotations 
 miR-RF is freely available as an open-source software package at 
 https://github.com/CanevottiAlessia/miR-RF.
 
-The interactive miR-RF Annotation Browser is accessible at  
-https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/  
+The interactive miR-RF Annotation Browser is accessible at https://app-mir-rf-vfd7s8nncj3mx6anbaaxrh.streamlit.app/  
 (source code: https://github.com/CanevottiAlessia/Streamlit-miR-RF).
 
 ---
