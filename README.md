@@ -141,7 +141,7 @@ Example output (output_miR-RF_classes.txt):
 ```plaintext
 "miRNA name"        "status"	
 ">hsa-mir-30b_MI0000441_Homo_sapiens_miR-30b_stem-loop"     ""
-">hsa-mir-122_MI0000442_Homo_sapiens_miR-122_stem-loop"     "" 
+">hsa-mir-122_MI0000442_Homo_sapiens_miR-122_stem-loop"     "R" 
 ```
 
 ---
