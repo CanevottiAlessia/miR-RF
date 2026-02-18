@@ -71,15 +71,19 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 ## Example
 
 Below you can find a complete example of the workflow. 
-An example FASTA file (example_FASTA_file.fa) is provided with the repository:
+An example FASTA file (fasta_example.fa) is provided with the repository:
 
 ```plaintext
->hsa-let-7a-3_MI0000062
-GGGUGAGGUAGUAGGUUGUAUAGUUUGGGGCUCUGCCCUGCUAUGGGAUAACUAUACAAUCUACUGUCUUUCCU
->hsa-let-7b_MI0000063
-CGGGGUGAGGUAGUAGGUUGUGUGGUUUCAGGGCAGUGAUGUUGCCCCUCGGAAGAUAACUAUACAACCUACUGCCUUCCCUG
->hsa-let-7c_MI0000064
-GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUGGAGC
+>hsa-mir-3665
+GCGGGCGGCGGCGGCGGCAGCAGCAGCAGGUGCGGGGCGGCGGCCGCGCUGGCCGCUCGACUCCGCAGCUGCUCGUUCUGCUUCUCCAGCUUGCGCACCAGCUCC
+>hsa-mir-3666
+AGUAAGGUCCGUCAGUUGUAAUGAGACCCAGUGCAAGUGUAGAUGCCGACUCCGUGGCAGAGUUCAGCGUUUCACACUGCCUGGUCUCUGUCACUCUAUUGAAUUAGAUUG
+>hsa-mir-3667
+UGAGGAUGAAAGACCCAUUGAGGAGAAGGUUCUGCUGGCUGAGAACCUUCCUCUCCAUGGGUCUUUCAUCCUCA
+>hsa-mir-3668
+AUAUAUGAAAUGUAGAGAUUGAUCAAAAUAGUUUCUAUCAAAAUAGUUUUGAUCAAUCUCUGCAAUUUUAUAUAU
+>hsa-mir-3670-1
+UCUAGACUGGUAUAGCUGCUUUUGGAGCCUCACCUGCUGAGAGCUCACAGCUGUCCUUCUCUAGA
 ```
 Users may replace this file with any FASTA or multi-FASTA file of interest.
 
@@ -89,31 +93,43 @@ RNA secondary structures are predicted using RNAfold.
 The name of the output file can set by the user (here RNAfold_file.txt):
 
 ```bash
-RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> example_FASTA_file.fa > RNAfold_file.txt
+RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> fasta_example.fa > RNAfold_example.txt
 ```
 
 
 Example output (RNAfold_file.txt):
 
 ```plaintext
->hsa-let-7a-3_MI0000062
-GGGUGAGGUAGUAGGUUGUAUAGUUUGGGGCUCUGCCCUGCUAUGGGAUAACUAUACAAUCUACUGUCUUUCCU
-(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))) (-34.10)
-(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))} [-34.81]
-(((.(((((((((((((((((((((((((((...)))))).........))))))))))))))))))))).))) {-34.10 d=2.00}
- frequency of mfe structure in ensemble 0.314643; ensemble diversity 3.41
->hsa-let-7b_MI0000063
-CGGGGUGAGGUAGUAGGUUGUGUGGUUUCAGGGCAGUGAUGUUGCCCCUCGGAAGAUAACUAUACAACCUACUGCCUUCCCUG
-(((((.(((((((((((((((((((((((.((((((.....))))))...))).....))))))))))))))))))))))))) (-46.70)
-(((((.(((((((((((((((((((((((,((((((.....)))))).,.,}}....}))))))))))))))))))))))))) [-48.38]
-(((((.(((((((((((((((((((((...((((((.....))))))..........)))))))))))))))))))))))))) {-46.20 d=5.25}
- frequency of mfe structure in ensemble 0.0651573; ensemble diversity 7.60
->hsa-let-7c_MI0000064
-GCAUCCGGGUUGAGGUAGUAGGUUGUAUGGUUUAGAGUUACACCCUGGGAGUUAACUGUACAACCUUCUAGCUUUCCUUGGAGC
-((.((((((..(((.(((.(((((((((((((..((.((.((...)).)).))))))))))))))).))).)))..)))))))) (-31.40)
-((.((((((..(((.(((.(((((((((((((..((.(,.({...}).,).))))))))))))))).))).)))..)))))))) [-33.10]
-((.((((((..(((.(((.(((((((((((((..((.(..(.....)..).))))))))))))))).))).)))..)))))))) {-31.20 d=4.73}
- frequency of mfe structure in ensemble 0.0635097; ensemble diversity 7.33
+>hsa-mir-3665
+GCGGGCGGCGGCGGCGGCAGCAGCAGCAGGUGCGGGGCGGCGGCCGCGCUGGCCGCUCGACUCCGCAGCUGCUCGUUCUGCUUCUCCAGCUUGCGCACCAGCUCC
+(((((((..(((((.(((((.((((((((.(((((((((((((((.....)))))).)).))))))).))))).))))))))...)).)))..))).)).))... (-64.40)
+(((((((..(((((.(((((.((((((((.(((((((((((((((,...,)))))).)).))))))).))))).))))))))...)).)))..))).)).))... [-65.07]
+(((((((..(((((.(((((.((((((((.(((((((((((((((.....)))))).)).))))))).))))).))))))))...)).)))..))).)).))... {-64.40 d=3.20}
+ frequency of mfe structure in ensemble 0.334897; ensemble diversity 5.75
+>hsa-mir-3666
+AGUAAGGUCCGUCAGUUGUAAUGAGACCCAGUGCAAGUGUAGAUGCCGACUCCGUGGCAGAGUUCAGCGUUUCACACUGCCUGGUCUCUGUCACUCUAUUGAAUUAGAUUG
+.....((((..(((((.((...((((((.((.(((.((((((((((.(((((.......)))))..)))))).)))))))))))))))....))...)))))....)))). (-32.30)
+.....,(((..(((((.({...(((({{{((.(({{((((((((((.(((((.......))))}}.)))))).)))))))))))))))..,.)}...)))))....))),. [-35.43]
+......(((..(((((.((...(((((.(((.((..((((((((((.(((((.......)))).).)))))).)))).))))))))))....))...)))))....))).. {-29.10 d=11.82}
+ frequency of mfe structure in ensemble 0.0062276; ensemble diversity 17.50
+>hsa-mir-3667
+UGAGGAUGAAAGACCCAUUGAGGAGAAGGUUCUGCUGGCUGAGAACCUUCCUCUCCAUGGGUCUUUCAUCCUCA
+((((((((((((((((((.((((.(((((((((........))))))))).)))).)))))))))))))))))) (-51.60)
+{(((((((((((((((((.((((.(((((((((........))))))))).)))).)))))))))))))))))} [-52.19]
+((((((((((((((((((.((((.(((((((((........))))))))).)))).)))))))))))))))))) {-51.60 d=1.05}
+ frequency of mfe structure in ensemble 0.38599; ensemble diversity 1.55
+>hsa-mir-3668
+AUAUAUGAAAUGUAGAGAUUGAUCAAAAUAGUUUCUAUCAAAAUAGUUUUGAUCAAUCUCUGCAAUUUUAUAUAU
+(((((((((((((((((((((((((((((.((((......)))).)))))))))))))))))).))))))))))) (-33.70)
+{((((((((((((((((((((((((((((.((((......)))).))))))))))))))))))},)))))))))} [-34.64]
+(((((((((((((((((((((((((((((.((((......)))).))))))))))))))))))).)))))))))) {-33.70 d=1.93}
+ frequency of mfe structure in ensemble 0.216196; ensemble diversity 2.55
+>hsa-mir-3670-1
+UCUAGACUGGUAUAGCUGCUUUUGGAGCCUCACCUGCUGAGAGCUCACAGCUGUCCUUCUCUAGA
+((((((..((.(((((((......((((((((.....)))).)))).)))))))))...)))))) (-24.20)
+{(((((..((.(((((((....,.((((((((.....)))).)))),)))))))))...)))))} [-25.20]
+((((((..((.(((((((......((((((((.....)))).)))).)))))))))...)))))) {-24.20 d=2.82}
+ frequency of mfe structure in ensemble 0.197459; ensemble diversity 4.22
 ```
 
 
