@@ -5,6 +5,7 @@
 
 
 This is the main GitHub repository for **miR-RF** a machine learning tool and computational workflow for the structural evaluation and classification of human pre-microRNAs. The workflow is composed of 3 main modules: *RNAfold*, *miR_application.py* and *miR_classes.py* and implements key concepts and analytical methods described in the accompanying manuscript (*"An operational workflow for the systematic annotation of human miRNAs"*). 
+
 ---
 
 ## Installation
