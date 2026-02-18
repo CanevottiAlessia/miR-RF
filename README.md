@@ -33,19 +33,6 @@ Starting from the input sequences, the workflow proceeds as follows:
 
 After setting up the Conda environment, start from an input FASTA file (`<FASTA_file>`) and predict RNA secondary structures using **RNAfold**:
 
-> ⚠️ **Important note**
->  
-> **miR-RF does not support FASTA headers containing tab characters.**  
-> Please ensure that sequence headers do **not** include tabs (`\t`), as this may lead to incorrect parsing or unexpected behavior.
->  
-> We recommend using only whitespace-free identifiers or safe delimiters such as underscores (`_`), pipes (`|`), or semicolons (`;`) in FASTA headers.
->
->Output files from both miR_application.py and miR_classes.py are written to the directory from which the scripts are launched (unless a specific path is provided).
->
->Temporary folders and intermediate files may be created during execution. Temporary files are automatically deleted at the end of the run, while the folders may remain empty.
-
-
-
 ```bash
 RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <FASTA_file> > <output_RNAfold>
 ```
@@ -69,6 +56,19 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 ```
 
 **Output miR_classes.py**: structural stability class = "status" (R, D, I, S). Also in this case the output is provided in the form of a tab delineated table, with one sequence per line and its structural stability class.
+
+--- 
+
+> ⚠️ **Important note**
+>  
+> **miR-RF does not support FASTA headers containing tab characters.**  
+> Please ensure that sequence headers do **not** include tabs (`\t`), as this may lead to incorrect parsing or unexpected behavior.
+>  
+> We recommend using only whitespace-free identifiers or safe delimiters such as underscores (`_`), pipes (`|`), or semicolons (`;`) in FASTA headers.
+>
+>Output files from both miR_application.py and miR_classes.py are written to the directory from which the scripts are launched (unless a specific path is provided).
+>
+>Temporary folders and intermediate files may be created during execution. Temporary files are automatically deleted at the end of the run, while the folders may remain empty.
 
 ---
 
