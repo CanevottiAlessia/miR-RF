@@ -63,12 +63,10 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 >  
 > **miR-RF does not support FASTA headers containing tab characters.**  
 > Please ensure that sequence headers do **not** include tabs (`\t`), as this may lead to incorrect parsing or unexpected behavior.
->  
 > We recommend using only whitespace-free identifiers or safe delimiters such as underscores (`_`), pipes (`|`), or semicolons (`;`) in FASTA headers.
->
->Output files from both miR_application.py and miR_classes.py are written to the directory from which the scripts are launched (unless a specific path is provided).
->
->Temporary folders and intermediate files may be created during execution. Temporary files are automatically deleted at the end of the run, while the folders may remain empty.
+> **Output and tmp files**
+> Output files from both miR_application.py and miR_classes.py are written to the directory from which the scripts are launched.
+> Temporary folders and intermediate files are created during execution. Temporary files are automatically deleted at the end of the run, while the folders may remain empty.
 
 ---
 
