@@ -44,10 +44,6 @@ def runner(inp_name: str, out_name: str) -> None:
         raise FileNotFoundError(f"Input file not found: {inp_path}")
 
     # 1) Step python
-    # Adesso passo i 3 argomenti:
-    #   - input file
-    #   - run_workdir (dove scrivere intermedi)
-    #   - intermediate_file (feature table finale)
     subprocess.run(
         ["python3", str(py_script), str(inp_path), str(run_workdir), str(intermediate_file)],
         check=True,
@@ -65,19 +61,21 @@ def runner(inp_name: str, out_name: str) -> None:
         cwd=str(utilities_dir)
     )
 
-    #print(f"[] Output prediction: {out_path}")
+    # --- CLEANUP: cancella SOLO i file dentro run_workdir (ricorsivo), lasciando le cartelle ---
+    for p in run_workdir.rglob("*"):
+        if p.is_file() or p.is_symlink():
+            try:
+                p.unlink()
+            except FileNotFoundError:
+                pass
 
-        # Sotto per cancellare anche la feature table dopo R:
+    # (Opzionale) cancella anche la feature table se per qualche motivo fosse rimasta
     try:
         intermediate_file.unlink()
     except FileNotFoundError:
         pass
 
-    # Cancella anche la cartella run/ se è vuota
-    try:
-        run_workdir.rmdir()
-    except OSError:
-        pass
+    # Non rimuovo run_workdir: resta vuota (come richiesto)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
