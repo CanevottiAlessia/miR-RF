@@ -67,7 +67,7 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 >
 > **Output and tmp files**  
 > Output files from both `miR_application.py` and `miR_classes.py` are written to the directory from which the scripts are launched.  
-> Temporary folders and intermediate files are created during execution. Temporary files are automatically deleted at the end of the run, while the folders may remain empty.
+> Temporary folders and files are created during execution. Temporary files are automatically deleted at the end of the run, while the folders remain empty.
 
 
 ---
