@@ -155,7 +155,7 @@ Finally, miR_classes.py can assign structural stability classes (R, D, I, S).
 Also in this case, users are free to set the name of the output file.
 
 ```bash
-python3 miR_classes.py example_RNAfold_file.txt example_FASTA_file.fa output_miR_application.txt output_miR-RF_classes.txt
+python3 miR_classes.py RNAfold_example.txt fasta_example.fa output_miR_application.txt output_miR-RF_classes.txt
 ```
 
 Example output (output_miR-RF_classes.txt):
