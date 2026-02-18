@@ -75,7 +75,7 @@ python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_
 ## Example
 
 Below you can find a complete example of the workflow. 
-An example FASTA file (fasta_example.fa) is provided with the repository:
+An example FASTA file (fasta_example.fa) is provided with the repository (dir: input):
 
 ```plaintext
 >hsa-mir-3665
