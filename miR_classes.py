@@ -197,11 +197,6 @@ def runner(rnafold: str, fasta: str, base_pred: str, out: str) -> None:
         cwd=str(run_workdir)
     )
 
-    print(f"[OK] Run id: {run_id}")
-    print(f"[OK] Workdir: {run_workdir}")
-    print(f"[OK] Output classes: {out_path}")
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="miRF classes wrapper (Strada A)")
     parser.add_argument("rnafold", type=str, help="RNAfold file (relative to main/input/ or absolute)")
