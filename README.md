@@ -87,7 +87,7 @@ UCUAGACUGGUAUAGCUGCUUUUGGAGCCUCACCUGCUGAGAGCUCACAGCUGUCCUUCUCUAGA
 ```
 Users may replace this file with any FASTA or multi-FASTA file of interest.
 
-RNA secondary structure prediction
+**RNA secondary structure prediction**
 
 RNA secondary structures are predicted using RNAfold.
 The name of the output file can set by the user (here RNAfold_file.txt):
@@ -96,8 +96,7 @@ The name of the output file can set by the user (here RNAfold_file.txt):
 RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> fasta_example.fa > RNAfold_example.txt
 ```
 
-
-Example output (RNAfold_file.txt):
+Example output (RNAfold_example.txt):
 
 ```plaintext
 >hsa-mir-3665
@@ -133,26 +132,24 @@ UCUAGACUGGUAUAGCUGCUUUUGGAGCCUCACCUGCUGAGAGCUCACAGCUGUCCUUCUCUAGA
 ```
 
 
-miR-RF prediction
+**miR-RF prediction**
 
 RNAfold output is processed by miR_application.py to predict if -based on sequence and secondary structure- the input sequence qualify as "valid" candidate pre-miRNAs.
-The name of the output file (here output_miR_application.txt) can be set by the user at runtime:
+The name of the output file (here "output_miR_application.txt") can be set by the user at runtime:
 
 ```bash
-python3 miR_application.py RNAfold_file.txt output_miR_application.txt
+python3 miR_application.py RNAfold_example.txt output_miR_application.txt
 ```
 
 Example output (output_miR_application.txt):
 
 ```plaintext
-"miRNA name"        "prediction"
-">hsa-let-7a-3_MI0000062"     "2"
-">hsa-let-7b_MI0000063"     "2"    
-">hsa-let-7c_MI0000064"     "2"
+
+
 ```
 
 
-Structural stability class assignment (optional)
+**Structural stability class assignment (optional)**
 
 Finally, miR_classes.py can assign structural stability classes (R, D, I, S).
 Also in this case, users are free to set the name of the output file.
@@ -164,10 +161,9 @@ python3 miR_classes.py example_RNAfold_file.txt example_FASTA_file.fa output_miR
 Example output (output_miR-RF_classes.txt):
 
 ```plaintext
-"miRNA name"        "status"	
-">hsa-let-7a-3_MI0000062"     "R"
-">hsa-let-7b_MI0000063"     "R"    
-">hsa-let-7c_MI0000064"     "R"
+
+
+
 ```
 
 ---
