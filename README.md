@@ -4,7 +4,7 @@
 [![Conda](https://img.shields.io/badge/environment-conda-green)](https://docs.conda.io/)
 
 
-This is the main GitHub repository for **miR-RF** a machine learning tool and computational workflow for the structural evaluation and classification of human pre-microRNAs. The workflow is composed of 3 main modules: *RNAfold*, *miR_application.py* and *miR_classes.py* and implements key concepts and analytical methods described in the accompanying manuscript (*"An operational workflow for the systematic annotation of human miRNAs"*). 
+This is the main GitHub repository for **miR-RF**, a machine learning tool and computational workflow for the structural evaluation and classification of human pre-microRNAs. The workflow is composed of 3 main modules: *RNAfold*, *miR_application.py* and *miR_classes.py* and implements key concepts and analytical methods described in the accompanying manuscript (*"An operational workflow for the systematic annotation of human miRNAs"*). 
 
 ---
 
@@ -31,7 +31,7 @@ Starting from the input sequences, the workflow proceeds as follows:
 2. **miR_application.py** classifies each sequence as a **valid (2)** or **non-valid (1)** pre-miRNA.
 3. **miR_classes.py** derives structural stability classes based on features extracted from the predicted secondary structures.
 
-After setting up the Conda environment, start from an input FASTA file (`<FASTA_file>`) and predict RNA secondary structures using **RNAfold**:
+After setting up the Conda environment, start from an input FASTA file (`<FASTA_file>`) and predict RNA secondary structures using **RNAfold**, as follow:
 
 ```bash
 RNAfold -p -d2 --noLP --noDP --noPS --jobs=<n of threads> <FASTA_file> > <output_RNAfold>
@@ -47,9 +47,9 @@ Once the RNA secondary structure predictions are generated (`<output_RNAfold>`),
 ```bash
 python3 miR_application.py <output_RNAfold> <miR-RF_output>
 ```
-**Output miR_application.py**: The output consists in a tab delineated file with two columns, reporting each sequence in the input and its classification: "valid" = 2, "non-valid" = 1.
+**Output miR_application.py**: the output consists in a tab delineated file with two columns, reporting each sequence in the input and its classification: "valid" = 2 or "non-valid" = 1.
 
-Optionally, if you also want to compute the structural stability classes (R, D, I, S), run miR_classes.py using the RNAfold output, the input FASTA file, and  miR-RF predictions:
+Optionally, if you also want to compute the structural stability classes (R, D, I, S), run **miR_classes.py** using the RNAfold output, the input FASTA file, and miR-RF predictions:
 
 ```bash
 python3 miR_classes.py <RNAfold_file> <FASTA_file> <miR-RF_output> <output_file_miR-RF>
