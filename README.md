@@ -153,7 +153,7 @@ Example output (output_miR_application.txt):
 ">hsa-mir-3666" "1"
 ">hsa-mir-3667" "2"
 ">hsa-mir-3668" "2"
-">hsa-mir-3670-1"       "2"
+">hsa-mir-3670-1" "2"
 ```
 
 
@@ -170,10 +170,10 @@ Example output (output_miR-RF_classes.txt):
 
 ```plaintext
 mirna_name      new_status
->hsa-mir-3665   S
->hsa-mir-3666   I
->hsa-mir-3667   R
->hsa-mir-3668   R
+>hsa-mir-3665 S
+>hsa-mir-3666 I
+>hsa-mir-3667 R
+>hsa-mir-3668 R
 >hsa-mir-3670-1 D
 ```
 
